@@ -29,11 +29,23 @@ const Payment = ({}) => {
           height: 60,
         }}
       >
+        <TouchableOpacity>
+          <Image
+            source={require("../../assets/logo/back.png")}
+            style={{
+              height: 26,
+              width: 27,
+              alignItems: "center",
+              marginLeft: 10,
+              marginTop: 20,
+            }}
+          />
+        </TouchableOpacity>
         <Text
           style={{
             marginTop: 20,
-            marginLeft: 20,
-            fontSize: 18,
+            marginLeft: 120,
+            fontSize: 19,
             fontWeight: "600",
           }}
         >
@@ -109,10 +121,10 @@ const Payment = ({}) => {
         }}
       >
         <Image
-          source={require("../../assets/logo/upi.png")}
+          source={require("../../assets/logo/pwallet.png")}
           style={{
-            height: 32,
-            width: 30,
+            height: 20,
+            width: 25,
             alignItems: "center",
             marginLeft: 5,
           }}
@@ -148,12 +160,12 @@ const Payment = ({}) => {
         }}
       >
         <Image
-          source={require("../../assets/logo/upi.png")}
+          source={require("../../assets/logo/card.png")}
           style={{
-            height: 30,
-            width: 32,
+            height: 25,
+            width: 27,
             alignItems: "center",
-            marginLeft: 5,
+            marginLeft: 4,
           }}
         />
         <Text
