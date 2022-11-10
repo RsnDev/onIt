@@ -284,7 +284,6 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     backgroundColor: "#fff",
     alignItems: "flex-start",
-    //justifyContent: 'center',
     marginLeft: 20,
     marginTop: 10,
     height: 112,
