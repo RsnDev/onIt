@@ -23,15 +23,20 @@ const Plumber = ({ navigation }) => {
     <View style={styles.container}>
       <View style={styles.sectionStyle}>
         <Image
-          source={require("../../assets/logo/left.png")}
+          source={require("../../assets/logo/location.png")}
           style={styles.imageStyle}
         />
-        <TextInput
-          style={{ flex: 0.5, marginLeft: 15, fontSize: 18, fontWeight: "700" }}
-          placeholder="Sector 104,Noida"
-          placeholderTextColor="#00796A"
-          underlineColorAndroid="transparent"
-        />
+        <Text
+          style={{
+            flex: 0.5,
+            marginLeft: 16,
+            fontSize: 18,
+            fontWeight: "700",
+            color: "#00796A",
+          }}
+        >
+          Sector 104, Noida
+        </Text>
         <Image
           source={require("../../assets/logo/pen.png")}
           style={{ height: 25, width: 25 }}
@@ -42,7 +47,7 @@ const Plumber = ({ navigation }) => {
           source={require("../../assets/logo/plmber.png")}
           style={styles.imageStyle}
         />
-        <TextInput
+        <Text
           style={{
             flex: 0.9,
             fontWeight: "700",
@@ -50,10 +55,9 @@ const Plumber = ({ navigation }) => {
             color: "black",
             marginLeft: 15,
           }}
-          placeholder="Plumber"
-          placeholderTextColor="black"
-          underlineColorAndroid="transparent"
-        />
+        >
+          Plumber
+        </Text>
         <Image
           source={require("../../assets/logo/down.png")}
           style={{ height: 25, width: 25 }}
@@ -90,7 +94,7 @@ const Plumber = ({ navigation }) => {
           source={require("../../assets/logo/Clock.png")}
           style={{ height: 30, width: 25, marginLeft: 10 }}
         />
-        <TextInput
+        <Text
           style={{
             flex: 1,
             fontWeight: "700",
@@ -98,10 +102,9 @@ const Plumber = ({ navigation }) => {
             color: "black",
             marginLeft: 10,
           }}
-          placeholder=" Visit Schedule"
-          underlineColorAndroid="transparent"
-          placeholderTextColor="#737373"
-        />
+        >
+          Visit Schedule
+        </Text>
       </View>
       <View style={styles.couponStyle}>
         <Image
@@ -116,9 +119,9 @@ const Plumber = ({ navigation }) => {
             color: "black",
             marginLeft: 35,
           }}
-          placeholder="OniT 2022"
+          placeholder="Offer Code"
           underlineColorAndroid="transparent"
-          placeholderTextColor="black"
+          //placeholderTextColor=""
         />
         <Text style={{ color: "#0066FF" }}>change</Text>
       </View>
@@ -149,7 +152,7 @@ const Plumber = ({ navigation }) => {
         }}
         //</View>onPress={() => { console.log("coming soon") }}>
         onPress={() => {
-          alert("coming soon");
+          navigation.navigate("Payment");
         }}
       >
         <Text
@@ -189,11 +192,11 @@ const styles = StyleSheet.create({
   imageStyle: {
     //padding: 10,
     //margin: 5,
-    height: 32,
-    width: 32,
+    height: 25,
+    width: 25,
     //resizeMode: 'stretch',
     alignItems: "center",
-    marginLeft: 15,
+    marginLeft: 20,
   },
   plumberStyle: {
     flexDirection: "row",

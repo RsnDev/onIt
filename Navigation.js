@@ -25,6 +25,15 @@ import Documents from "./src/TabsScreen/Documents";
 import Appointments from "./src/TabsScreen/Appointments";
 import Payments from "./src/TabsScreen/Payments";
 import Subscriptions from "./src/TabsScreen/Subscription";
+import Payment from "./src/screens/Payment";
+import AcService from "./src/Services Screen/AcService";
+import Appliance from "./src/Services Screen/Appliance";
+import Beauty from "./src/Services Screen/Beauty";
+import Computer from "./src/Services Screen/Computer";
+import Electronics from "./src/Services Screen/Electronics";
+import HealthCare from "./src/Services Screen/HealthCare";
+import HomeCare from "./src/Services Screen/HomeCare";
+import Vehicles from "./src/Services Screen/Vehicles";
 
 const Stack = createNativeStackNavigator();
 const Navigation = () => {
@@ -53,6 +62,15 @@ const Navigation = () => {
         <Stack.Screen name="Appointments" component={Appointments} />
         <Stack.Screen name="Payments" component={Payments} />
         <Stack.Screen name="Subscriptions" component={Subscriptions} />
+        <Stack.Screen name="Payment" component={Payment} />
+        <Stack.Screen name="AcService" component={AcService} />
+        <Stack.Screen name="Appliance" component={Appliance} />
+        <Stack.Screen name="Beauty" component={Beauty} />
+        <Stack.Screen name="Computer" component={Computer} />
+        <Stack.Screen name="Electronics" component={Electronics} />
+        <Stack.Screen name="HealthCare" component={HealthCare} />
+        <Stack.Screen name="HomeCare" component={HomeCare} />
+        <Stack.Screen name="Vehicles" component={Vehicles} />
       </Stack.Navigator>
     </NavigationContainer>
   );

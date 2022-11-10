@@ -57,18 +57,17 @@ const Homemain = ({ navigation }) => {
               alignItems: "center",
             }}
           />
-          <TextInput
+          <Text
             style={{
               flex: 1,
-              fontWeight: "800",
-              fontSize: 18,
+              fontWeight: "700",
+              fontSize: 19,
               color: "#fff",
               marginLeft: 5,
             }}
-            placeholder="Sector 62A,Noida"
-            placeholderTextColor="#fff"
-            underlineColorAndroid="transparent"
-          />
+          >
+            Sector XXX, Noida
+          </Text>
           <Image
             source={require("../../assets/logo/alert.png")}
             style={{

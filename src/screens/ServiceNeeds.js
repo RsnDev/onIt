@@ -61,7 +61,7 @@ const ServiceNeeds = ({ navigation }) => {
               alignItems: "center",
             }}
           />
-          <TextInput
+          <Text
             style={{
               flex: 1,
               fontWeight: "800",
@@ -69,10 +69,9 @@ const ServiceNeeds = ({ navigation }) => {
               color: "#fff",
               marginLeft: 5,
             }}
-            placeholder="Sector 62A,Noida"
-            placeholderTextColor="#fff"
-            underlineColorAndroid="transparent"
-          />
+          >
+            Sector XXX,Noida
+          </Text>
           <Image
             source={require("../../assets/logo/alert.png")}
             style={{
@@ -213,7 +212,7 @@ const ServiceNeeds = ({ navigation }) => {
             <TouchableOpacity
               style={styles.button1}
               onPress={() => {
-                alert("coming soon");
+                navigation.navigate("AcService");
               }}
             >
               <Image
@@ -227,7 +226,7 @@ const ServiceNeeds = ({ navigation }) => {
             <TouchableOpacity
               style={styles.button2}
               onPress={() => {
-                alert("coming soon");
+                navigation.navigate("Beauty");
               }}
             >
               <Image
@@ -241,7 +240,7 @@ const ServiceNeeds = ({ navigation }) => {
             <TouchableOpacity
               style={styles.button2}
               onPress={() => {
-                alert("coming soon");
+                navigation.navigate("HomeCare");
               }}
             >
               <Image
@@ -269,7 +268,7 @@ const ServiceNeeds = ({ navigation }) => {
             <TouchableOpacity
               style={styles.button2}
               onPress={() => {
-                alert("coming soon");
+                navigation.navigate("Appliance");
               }}
             >
               <Image
@@ -283,7 +282,7 @@ const ServiceNeeds = ({ navigation }) => {
             <TouchableOpacity
               style={styles.button2}
               onPress={() => {
-                alert("coming soon");
+                navigation.navigate("Electronics");
               }}
             >
               <Image
@@ -299,7 +298,7 @@ const ServiceNeeds = ({ navigation }) => {
             <TouchableOpacity
               style={styles.button1}
               onpress={() => {
-                alert("coming soon");
+                navigation.navigate("Computer");
               }}
             >
               <Image
@@ -313,7 +312,7 @@ const ServiceNeeds = ({ navigation }) => {
             <TouchableOpacity
               style={styles.button2}
               onPress={() => {
-                alert("coming soon");
+                navigation.navigate("HealthCare");
               }}
             >
               <Image
@@ -327,7 +326,7 @@ const ServiceNeeds = ({ navigation }) => {
             <TouchableOpacity
               style={styles.button2}
               onPress={() => {
-                alert("coming soon");
+                navigation.navigate("Vehicles");
               }}
             >
               <Image
