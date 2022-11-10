@@ -14,7 +14,7 @@ import {
   Alert,
 } from "react-native";
 
-const Payment = ({}) => {
+const Payment = ({ navigation }) => {
   return (
     <View style={{ flex: 1, backgroundColor: "#F8F8F8" }}>
       <StatusBar
@@ -29,7 +29,11 @@ const Payment = ({}) => {
           height: 60,
         }}
       >
-        <TouchableOpacity>
+        <TouchableOpacity
+          onPress={() => {
+            navigation.navigate("ServiceNeeds");
+          }}
+        >
           <Image
             source={require("../../assets/logo/back.png")}
             style={{
