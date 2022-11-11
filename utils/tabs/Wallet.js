@@ -13,6 +13,7 @@ import {
   TouchableOpacity,
   Alert,
 } from "react-native";
+import { ScrollView } from "react-native-gesture-handler";
 
 const Wallet = ({ navigation }) => {
   return (
@@ -262,6 +263,315 @@ const Wallet = ({ navigation }) => {
           ₹5000
         </Text>
       </View>
+
+      {/* for Transaction */}
+      <View
+        style={{
+          backgroundColor: "#fff",
+          flexDirection: "row",
+          //flex: 1,
+          marginTop: 15,
+          height: 60,
+          borderTopRightRadius: 30,
+          borderTopLeftRadius: 30,
+          borderRadius: 2,
+          borderColor: "#00000029",
+        }}
+      >
+        <Image
+          source={require("../../assets/logo/pwallet.png")}
+          style={{
+            height: 20,
+            width: 25,
+            alignItems: "center",
+            marginLeft: 20,
+            marginTop: 20,
+          }}
+        />
+        <Text
+          style={{
+            marginTop: 20,
+            marginLeft: 20,
+            fontSize: 15,
+            fontWeight: "600",
+          }}
+        >
+          Transactions
+        </Text>
+      </View>
+
+      <ScrollView>
+        <View
+          style={{
+            flexDirection: "row",
+            backgroundColor: "#fff",
+            height: 35,
+            marginTop: 0,
+            //marginLeft: 20,
+            //marginRight: 20,
+            borderRadius: 3,
+            borderWidth: 1,
+            borderColor: "#fff",
+          }}
+        >
+          <Image
+            source={require("../../assets/logo/upi.png")}
+            style={{
+              height: 24,
+              width: 30,
+              alignItems: "center",
+              marginLeft: 18,
+              marginTop: 3,
+            }}
+          />
+          <Text
+            style={{
+              flex: 0.9,
+              fontWeight: "500",
+              fontSize: 16,
+              color: "black",
+              marginLeft: 19,
+              marginTop: 3,
+            }}
+          >
+            recieved from roushan
+          </Text>
+          <Text
+            style={{
+              color: "green",
+              fontSize: 16,
+              marginRight: 5,
+            }}
+          >
+            + ₹5000
+          </Text>
+        </View>
+        <View
+          style={{
+            flexDirection: "row",
+            backgroundColor: "#fff",
+            height: 35,
+            marginTop: 0,
+            //marginLeft: 20,
+            //marginRight: 20,
+            borderRadius: 3,
+            borderWidth: 1,
+            borderColor: "#fff",
+          }}
+        >
+          <Image
+            source={require("../../assets/logo/upi.png")}
+            style={{
+              height: 24,
+              width: 30,
+              alignItems: "center",
+              marginLeft: 18,
+              marginTop: 3,
+            }}
+          />
+          <Text
+            style={{
+              flex: 0.9,
+              fontWeight: "500",
+              fontSize: 16,
+              color: "black",
+              marginLeft: 19,
+              marginTop: 3,
+            }}
+          >
+            recieved from roushan
+          </Text>
+          <Text
+            style={{
+              color: "green",
+              fontSize: 16,
+              marginRight: 5,
+            }}
+          >
+            + ₹5000
+          </Text>
+        </View>
+        <View
+          style={{
+            flexDirection: "row",
+            backgroundColor: "#fff",
+            height: 35,
+            marginTop: 0,
+            //marginLeft: 20,
+            //marginRight: 20,
+            borderRadius: 3,
+            borderWidth: 1,
+            borderColor: "#fff",
+          }}
+        >
+          <Image
+            source={require("../../assets/logo/upi.png")}
+            style={{
+              height: 24,
+              width: 30,
+              alignItems: "center",
+              marginLeft: 18,
+              marginTop: 3,
+            }}
+          />
+          <Text
+            style={{
+              flex: 0.9,
+              fontWeight: "500",
+              fontSize: 16,
+              color: "black",
+              marginLeft: 19,
+              marginTop: 3,
+            }}
+          >
+            recieved from roushan
+          </Text>
+          <Text
+            style={{
+              color: "green",
+              fontSize: 16,
+              marginRight: 5,
+            }}
+          >
+            + ₹5000
+          </Text>
+        </View>
+        <View
+          style={{
+            flexDirection: "row",
+            backgroundColor: "#fff",
+            height: 35,
+            marginTop: 0,
+            //marginLeft: 20,
+            //marginRight: 20,
+            borderRadius: 3,
+            borderWidth: 1,
+            borderColor: "#fff",
+          }}
+        >
+          <Image
+            source={require("../../assets/logo/upi.png")}
+            style={{
+              height: 24,
+              width: 30,
+              alignItems: "center",
+              marginLeft: 18,
+              marginTop: 3,
+            }}
+          />
+          <Text
+            style={{
+              flex: 0.9,
+              fontWeight: "500",
+              fontSize: 16,
+              color: "black",
+              marginLeft: 19,
+              marginTop: 3,
+            }}
+          >
+            recieved from roushan
+          </Text>
+          <Text
+            style={{
+              color: "green",
+              fontSize: 16,
+              marginRight: 5,
+            }}
+          >
+            + ₹5000
+          </Text>
+        </View>
+        <View
+          style={{
+            flexDirection: "row",
+            backgroundColor: "#fff",
+            height: 35,
+            marginTop: 0,
+            //marginLeft: 20,
+            //marginRight: 20,
+            borderRadius: 3,
+            borderWidth: 1,
+            borderColor: "#fff",
+          }}
+        >
+          <Image
+            source={require("../../assets/logo/upi.png")}
+            style={{
+              height: 24,
+              width: 30,
+              alignItems: "center",
+              marginLeft: 18,
+              marginTop: 3,
+            }}
+          />
+          <Text
+            style={{
+              flex: 0.9,
+              fontWeight: "500",
+              fontSize: 16,
+              color: "black",
+              marginLeft: 19,
+              marginTop: 3,
+            }}
+          >
+            recieved from roushan
+          </Text>
+          <Text
+            style={{
+              color: "green",
+              fontSize: 16,
+              marginRight: 5,
+            }}
+          >
+            + ₹5000
+          </Text>
+        </View>
+        <View
+          style={{
+            flexDirection: "row",
+            backgroundColor: "#fff",
+            height: 35,
+            marginTop: 0,
+            //marginLeft: 20,
+            //marginRight: 20,
+            borderRadius: 3,
+            borderWidth: 1,
+            borderColor: "#fff",
+          }}
+        >
+          <Image
+            source={require("../../assets/logo/upi.png")}
+            style={{
+              height: 24,
+              width: 30,
+              alignItems: "center",
+              marginLeft: 18,
+              marginTop: 3,
+            }}
+          />
+          <Text
+            style={{
+              flex: 0.9,
+              fontWeight: "500",
+              fontSize: 16,
+              color: "black",
+              marginLeft: 19,
+              marginTop: 3,
+            }}
+          >
+            recieved from roushan
+          </Text>
+          <Text
+            style={{
+              color: "green",
+              fontSize: 16,
+              marginRight: 5,
+            }}
+          >
+            + ₹5000
+          </Text>
+        </View>
+      </ScrollView>
     </View>
   );
 };
