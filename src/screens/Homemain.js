@@ -247,7 +247,8 @@ const Homemain = ({ navigation }) => {
         <View style={styles.container}>
           <TouchableOpacity
             style={styles.button1}
-            onPress={() => navigation.navigate("PersonalCare")}
+            // onPress={() => navigation.navigate("PersonalCare")}
+            onPress={() => alert("coming soon")}
           >
             <Image
               style={{ marginTop: 1, marginLeft: 35, height: 40, width: 40 }}

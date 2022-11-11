@@ -70,7 +70,7 @@ const TabNavigator = createMaterialTopTabNavigator(
       style: {
         backgroundColor: "#fff",
         borderColor: "#fff",
-        shadowColor: "#fff",
+        shadowColor: "#ddd",
         marginTop: 0,
         height: 40,
       },
@@ -84,7 +84,7 @@ const Message = ({ navigation }) => {
     <View
       style={{
         flex: 1,
-        backgroundColor: "#F8F8F8",
+        backgroundColor: "#fff",
       }}
     >
       <StatusBar
