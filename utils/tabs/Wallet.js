@@ -107,19 +107,95 @@ const Wallet = ({ navigation }) => {
         style={{
           flexDirection: "row",
           height: 140,
-          backgroundColor: "skyblue",
+          backgroundColor: "#F8F8F8",
         }}
       >
-        <Text
+        <View
           style={{
-            fontSize: 20,
-            color: "black",
-            marginLeft: 40,
-            marginTop: 60,
+            flexDirection: "row",
+            marginLeft: 20,
+            marginTop: 15,
           }}
         >
-          Hello
-        </Text>
+          <Image
+            source={require("../../assets/logo/twallet.png")}
+            style={{
+              height: 55,
+              width: 57,
+              //alignItems: "center",
+              marginLeft: 20,
+              marginTop: 30,
+              marginLeft: 10,
+              marginRight: 20,
+            }}
+          />
+          <Text
+            style={{
+              fontSize: 15,
+              fontWeight: "500",
+              color: "black",
+              marginLeft: -5,
+              marginTop: 40,
+            }}
+          >
+            Wallet Balance{"\n"}
+            ₹1000
+          </Text>
+        </View>
+
+        <View
+          style={{
+            flexDirection: "column",
+            marginLeft: 40,
+            marginTop: 27,
+          }}
+        >
+          <TouchableOpacity>
+            <View
+              style={{
+                height: 40,
+                width: 130,
+                backgroundColor: "#00796A",
+                justifyContent: "center",
+                alignItems: "center",
+                borderRadius: 20,
+              }}
+            >
+              <Text
+                style={{
+                  color: "#fff",
+                  fontSize: 20,
+                  fontWeight: "600",
+                }}
+              >
+                Recharge
+              </Text>
+            </View>
+          </TouchableOpacity>
+          <TouchableOpacity>
+            <View
+              style={{
+                height: 40,
+                width: 130,
+                justifyContent: "center",
+                alignItems: "center",
+                backgroundColor: "#0066FF",
+                marginTop: 10,
+                borderRadius: 20,
+              }}
+            >
+              <Text
+                style={{
+                  color: "#fff",
+                  fontSize: 20,
+                  fontWeight: "600",
+                }}
+              >
+                Wallet
+              </Text>
+            </View>
+          </TouchableOpacity>
+        </View>
       </View>
 
       {/* for Bonus Section */}
