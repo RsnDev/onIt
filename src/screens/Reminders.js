@@ -60,11 +60,15 @@ const TabNavigator = createMaterialTopTabNavigator(
   },
   {
     tabBarOptions: {
-      upperCaseLabel:false,
+      upperCaseLabel: false,
       activeTintColor: "#00796A",
       inactiveTintColor: "#161716",
       indicatorStyle: {
         backgroundColor: "#00796A",
+      },
+      labelStyle: {
+        fontWeight: "600",
+        fontSize: 14,
       },
 
       style: {
@@ -159,12 +163,9 @@ const Reminders = ({ navigation }) => {
         </View>
       </View>
 
-
       <Navigator>
         <Reminders />
       </Navigator>
-
-
     </View>
   );
 };

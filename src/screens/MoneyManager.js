@@ -55,6 +55,10 @@ const TabNavigator = createMaterialTopTabNavigator(
       indicatorStyle: {
         backgroundColor: "#00796A",
       },
+      labelStyle: {
+        fontWeight: "600",
+        fontSize: 14,
+      },
 
       style: {
         backgroundColor: "#fff",

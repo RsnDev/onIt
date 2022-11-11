@@ -66,6 +66,10 @@ const TabNavigator = createMaterialTopTabNavigator(
       indicatorStyle: {
         backgroundColor: "#00796A",
       },
+      labelStyle: {
+        fontWeight: "600",
+        fontSize: 14,
+      },
 
       style: {
         backgroundColor: "#fff",
@@ -95,84 +99,42 @@ const Message = ({ navigation }) => {
       <View
         style={{ flexDirection: "row", backgroundColor: "#fff", height: 60 }}
       >
-        <TouchableOpacity onPress={() => navigation.navigate("Homem")}>
-          <View
-            style={{
-              flexDirection: "row",
-              justifyContent: "center",
-              alignItems: "center",
-              backgroundColor: "#fff",
-              height: 40,
-              marginTop: 10,
-              marginLeft: 14,
-              width: 20,
-              borderRadius: 4,
-            }}
-          >
-            <Image
-              source={require("../../assets/logo/left.png")}
-              style={{
-                margin: 10,
-                height: 24,
-                width: 24,
-                resizeMode: "stretch",
-                alignItems: "center",
-              }}
-            />
-          </View>
-        </TouchableOpacity>
         <View
           style={{
             flexDirection: "row",
-            justifyContent: "center",
+            //justifyContent: "space-evenly",
             alignItems: "center",
-            backgroundColor: "#00796A1A",
-            height: 45,
+            backgroundColor: "#fff",
+            height: 50,
             marginTop: 10,
             marginLeft: 14,
             width: "85%",
             borderRadius: 10,
           }}
         >
+          <Text
+            style={{
+              fontSize: 23,
+              fontWeight: "700",
+              marginLeft: 10,
+            }}
+          >
+            Chat
+          </Text>
           <Image
-            source={require("../../assets/logo/search.png")}
+            source={require("../../assets/logo/notif.png")}
             style={{
               margin: 10,
-              height: 20,
-              width: 20,
-              resizeMode: "stretch",
-              alignItems: "center",
+              height: 25,
+              width: 23,
+              marginLeft: 270,
             }}
-          />
-          <TextInput
-            style={{
-              flex: 1,
-              fontWeight: "500",
-              fontSize: 15,
-              color: "black",
-              marginLeft: 5,
-              letterSpacing: 0,
-            }}
-            placeholder="Search"
-            underlineColorAndroid="transparent"
           />
         </View>
       </View>
       <Navigator>
         <Message />
       </Navigator>
-
-      {/* <SafeAreaView style={styles.container}> */}
-      {/* <View style={styles.listTab}> */}
-      {/* {listTab.map((e) => ( */}
-      {/* <TouchableOpacity */}
-      {/* style={styles.btnTab}> */}
-      {/* onPress={() => navigation.navigate("Task")}> */}
-      {/* <Text style={styles.textTab}>{e.status}</Text> */}
-      {/* </TouchableOpacity> */}
-      {/* // ))} */}
-      {/* // </View> */}
-      {/* </SafeAreaView> */}
     </View>
   );
 };

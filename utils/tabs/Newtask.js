@@ -16,51 +16,45 @@ import "react-native";
 import { Ionicons } from "@expo/vector-icons";
 import React, { useEffect } from "react";
 import { useState } from "react";
+import { BottomSheet } from "react-native-btr";
 
 const { height, width } = Dimensions.get("window");
 
-const Reminders = ({ navigation }) => {
-  // const Images = [
+const Newtask = ({ navigation }) => {
+  const [visible, setVisible] = useState(false);
 
-  // ]
+  function toggle() {
+    setVisible((visible) => !visible);
+  }
 
   return (
-    <View style={{ flex: 1, backgroundColor: "#00796A" }}>
-      <StatusBar
-        barStyle="dark-content"
-        hidden={false}
-        backgroundColor="#fff"
-      />
-
-      <View
-        style={{ flex: 2, flexDirection: "column", backgroundColor: "#00796A" }}
+    <View
+      style={{
+        flex: 1,
+        justifyContent: "center",
+        alignItems: "center",
+      }}
+    >
+      <BottomSheet
+        visible={visible}
+        onBackButtonPress={toggle}
+        onBackdropPress={toggle}
       >
         <View
           style={{
-            flexDirection: "row",
-            justifyContent: "center",
-            alignItems: "stretch",
             backgroundColor: "#fff",
-            width: "100%",
-            height: "100%",
+            height: 250,
+            justifyContent: "center",
+            alignItems: "center",
           }}
         >
-          <Image
-            source={require("../../assets/image/add.jpg")}
-            style={{
-              justifyContent: "center",
-              alignItems: "center",
-              width: "93%",
-              height: "100%",
-            }}
-          />
-          {/* <Image source={require('../../assets/logo/Slider.png')} style={{ marginLeft: 15, width: 260, height: 139.5, }} /> */}
+          <Text>Place your custom view inside BottomSheet</Text>
         </View>
-      </View>
+      </BottomSheet>
     </View>
   );
 };
 
-export default Reminders;
+export default Newtask;
 
 const styles = StyleSheet.create({});
