@@ -105,7 +105,7 @@ const Payment = ({ navigation }) => {
         >
           UPI
         </Text>
-        <Text>hi</Text>
+        {/* <Text>hi</Text> */}
       </View>
 
       {/* for wallet section */}

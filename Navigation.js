@@ -34,6 +34,9 @@ import Electronics from "./src/Services Screen/Electronics";
 import HealthCare from "./src/Services Screen/HealthCare";
 import HomeCare from "./src/Services Screen/HomeCare";
 import Vehicles from "./src/Services Screen/Vehicles";
+import All from "./utils/Message/All";
+import Friends from "./utils/Message/Friends";
+import Technician from "./utils/Message/Technician";
 
 const Stack = createNativeStackNavigator();
 const Navigation = () => {
@@ -71,6 +74,9 @@ const Navigation = () => {
         <Stack.Screen name="HealthCare" component={HealthCare} />
         <Stack.Screen name="HomeCare" component={HomeCare} />
         <Stack.Screen name="Vehicles" component={Vehicles} />
+        <Stack.Screen name="All" component={All} />
+        <Stack.Screen name="Friends" component={Friends} />
+        <Stack.Screen name="Technician" component={Technician} />
       </Stack.Navigator>
     </NavigationContainer>
   );
