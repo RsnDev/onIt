@@ -140,9 +140,9 @@ const Wallet = ({ navigation }) => {
         }}
       >
         <Image
-          source={require("../../assets/logo/pwallet.png")}
+          source={require("../../assets/logo/bonus.png")}
           style={{
-            height: 20,
+            height: 25,
             width: 25,
             alignItems: "center",
             marginLeft: 5,
@@ -187,9 +187,9 @@ const Wallet = ({ navigation }) => {
         }}
       >
         <Image
-          source={require("../../assets/logo/pwallet.png")}
+          source={require("../../assets/logo/refund.png")}
           style={{
-            height: 20,
+            height: 25,
             width: 25,
             alignItems: "center",
             marginLeft: 5,
@@ -204,7 +204,7 @@ const Wallet = ({ navigation }) => {
             marginLeft: 20,
           }}
         >
-          Bonus Amount
+          Refund Amount
         </Text>
         <Text
           style={{
@@ -234,9 +234,9 @@ const Wallet = ({ navigation }) => {
         }}
       >
         <Image
-          source={require("../../assets/logo/pwallet.png")}
+          source={require("../../assets/logo/refer.png")}
           style={{
-            height: 20,
+            height: 25,
             width: 25,
             alignItems: "center",
             marginLeft: 5,
@@ -251,7 +251,7 @@ const Wallet = ({ navigation }) => {
             marginLeft: 20,
           }}
         >
-          Bonus Amount
+          Refer Earning
         </Text>
         <Text
           style={{
@@ -279,9 +279,9 @@ const Wallet = ({ navigation }) => {
         }}
       >
         <Image
-          source={require("../../assets/logo/pwallet.png")}
+          source={require("../../assets/logo/trans.png")}
           style={{
-            height: 20,
+            height: 28,
             width: 25,
             alignItems: "center",
             marginLeft: 20,
