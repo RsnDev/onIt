@@ -86,9 +86,9 @@ const Login = ({ navigation }) => {
           backgroundColor: "white",
           borderTopLeftRadius: 50,
           borderTopRightRadius: 50,
-          borderWidth: 0.5,
+          //borderWidth: 0.5,
           borderColor: "#ddd",
-          marginTop: 40,
+          marginTop: 50,
           shadowColor: "black",
           shadowOffset: {
             width: 0,
