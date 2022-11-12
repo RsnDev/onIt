@@ -37,19 +37,67 @@ const Login = ({ navigation }) => {
       >
         <ImageBackground
           source={require("../../assets/image/login.jpg")}
-          style={{ flex: 1, backgroundColor: "#fff", resizeMode: "cover" }}
+          style={{
+            flex: 1,
+            backgroundColor: "#fff",
+            resizeMode: "cover",
+            marginBottom: 0,
+          }}
         />
+
         {/* <Text style={{ fontSize: 35, fontWeight: 'bold', paddingLeft: 20 }}>Sign Up!</Text> */}
+        <View
+          style={{
+            alignItems: "center",
+            justifyContent: "center",
+          }}
+        >
+          <Text
+            style={{
+              fontSize: 20,
+              fontWeight: "600",
+            }}
+          >
+            Services and More...
+          </Text>
+        </View>
+        <View
+          style={{
+            alignItems: "center",
+            justifyContent: "center",
+          }}
+        >
+          <Text
+            style={{
+              fontSize: 15,
+              fontWeight: "400",
+              color: "#636363",
+              marginTop: 7,
+            }}
+          >
+            Your complete personal assistant.
+          </Text>
+        </View>
       </View>
 
       <View
         style={{
           flex: 1,
           backgroundColor: "white",
-          borderTopLeftRadius: 40,
-          borderTopRightRadius: 40,
-          shadowColor: "#ddd",
-          shadowRadius: 20,
+          borderTopLeftRadius: 50,
+          borderTopRightRadius: 50,
+          borderWidth: 0.5,
+          borderColor: "#ddd",
+          marginTop: 40,
+          shadowColor: "black",
+          shadowOffset: {
+            width: 0,
+            height: 12,
+          },
+          shadowOpacity: 0.58,
+          shadowRadius: 16.0,
+
+          elevation: 44,
         }}
       >
         <Text
@@ -58,7 +106,7 @@ const Login = ({ navigation }) => {
             fontSize: 24,
             fontWeight: "900",
             marginLeft: 110,
-            marginTop: 30,
+            marginTop: 20,
           }}
         >
           Everything OniT
