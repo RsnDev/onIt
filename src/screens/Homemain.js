@@ -163,6 +163,7 @@ const Homemain = ({ navigation }) => {
             marginLeft: 16,
             marginTop: 15,
             borderRadius: 5,
+            position: "relative",
           }}
         >
           <Image
