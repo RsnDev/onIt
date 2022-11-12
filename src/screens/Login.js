@@ -168,7 +168,7 @@ const Login = ({ navigation }) => {
               Login
             </Text>
           </Pressable>
-          <View
+          {/* <View
             style={{
               flexDirection: "row",
               width: "98%",
@@ -204,10 +204,8 @@ const Login = ({ navigation }) => {
                 </TouchableOpacity>
               </Text>
             </View>
-          </View>
+          </View> */}
         </View>
-
-        {/* <Buttons btn_text={"Login"} on_press={() => navigation.navigate("Homem")} /> */}
       </View>
     </View>
   );
