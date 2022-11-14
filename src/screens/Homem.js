@@ -1,14 +1,20 @@
-import 'react-native'
-import { StyleSheet } from 'react-native';
-import TabNavigator from '../../utils/TabNavigator'
-import React from 'react';
+import "react-native";
+import { StyleSheet, StatusBar, View } from "react-native";
+import TabNavigator from "../../utils/TabNavigator";
+import React from "react";
 
 const Homem = ({ navigation }) => {
-    return (         
-        <TabNavigator>    
-    </TabNavigator>
-    )
-}
+  return (
+    <View style={{ flex: 1, backgroundColor: "#00796A" }}>
+      <StatusBar
+        barStyle="light-content"
+        hidden={false}
+        backgroundColor="#00796A"
+      />
+      <TabNavigator></TabNavigator>
+    </View>
+  );
+};
 
-export default Homem
+export default Homem;
 const styles = StyleSheet.create({});

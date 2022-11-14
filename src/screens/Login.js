@@ -1,4 +1,5 @@
 import React, { useContext } from "react";
+import { useRef, useState } from "react";
 import {
   StyleSheet,
   View,
@@ -8,24 +9,62 @@ import {
   ImageBackground,
   ImageRequireSource,
   TextInput,
+  Dimensions,
   TouchableOpacity,
+  ToastAndroid,
   Alert,
   Pressable,
 } from "react-native";
 import { Colors } from "react-native/Libraries/NewAppScreen";
+import { TouchableWithoutFeedback, Keyboard } from "react-native";
+import { Controller, useForm } from "react-hook-form";
 import PhoneInput from "react-native-phone-number-input";
 import "react-native";
 import { AuthContext } from "../../utils/components/AuthContext";
+import { useSelector, useDispatch } from "react-redux";
+import axios from "axios";
 
-const Login = ({ navigation }) => {
-  const [phoneNumber, setPhoneNumber] = React.useState("");
-  const phoneInput = React.useRef(null);
-  //const val = useContext(AuthContext);
+const { width, height } = Dimensions.get("window");
 
-  //const { NewLogin } = useContext(AuthContext);
+export default function Login({ navigation, route }) {
+  const mobileNumber = route?.params?.mobileNumber;
+  const [visible, setVisible] = useState(false);
+  const phoneInput = useRef(null);
+  const {
+    control,
+    handleSubmit,
+    formState: { errors, isValid },
+  } = useForm({ mode: "all" });
 
-  const handleAddTask = () => {
-    console.log(phoneNumber);
+  const onsubmit = async ({ mobile_number }) => {
+    setVisible(true);
+    let payload = {
+      country_code: "+" + phoneInput.current?.getCallingCode(),
+      mobile_number,
+    };
+    console.log(payload);
+    try {
+      await axios({
+        method: "post",
+        url: "http://13.233.128.85:8000/center/sent-otp",
+        data: payload,
+        confif: {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        },
+      }).then(() => {
+        setVisible(false);
+        ToastAndroid.show("OTP sent", ToastAndroid.SHORT);
+        navigation.navigate("Otp", { data: payload });
+      });
+    } catch (error) {
+      setVisible(false);
+      ToastAndroid.show(
+        error?.response?.data?.message + "!",
+        ToastAndroid.SHORT
+      );
+    }
   };
 
   return (
@@ -112,9 +151,96 @@ const Login = ({ navigation }) => {
           Everything OniT
         </Text>
 
-        <View style={{ justifyContent: "center", alignItems: "center" }}>
+        <View
+          style={{
+            justifyContent: "center",
+            alignItems: "center",
+            marginTop: 20,
+          }}
+        >
+          <Controller
+            control={control}
+            render={({ field: { onChange, onBlur, value } }) => (
+              <PhoneInput
+                ref={phoneInput}
+                value={(value = mobileNumber || value)}
+                defaultCode="IN"
+                onChangeText={(text) => {
+                  onChange(text);
+                }}
+                withDarkTheme
+                withShadow
+                containerStyle={{
+                  borderWidth: 1,
+                  borderColor: "#00796A",
+                  color: "#000",
+                  borderRadius: 4,
+                  // fontFamily: "poppins-semibold",
+                  fontSize: 14,
+                  width: "90%",
+                  height: 60,
+                }}
+                textInputProps={onBlur}
+              />
+            )}
+            name="mobile_number"
+            defaultValue={mobileNumber || ""}
+            rules={{
+              required: true,
+              pattern: {
+                value: /^[0-9]*$/,
+                message: "Enter valid phone number!",
+              },
+            }}
+          />
+          {errors.mobile_number?.type === "pattern" && (
+            <Text
+              style={{
+                color: "red",
+                marginTop: 2,
+                alignSelf: "flex-start",
+                marginLeft: 20,
+              }}
+            >
+              Enter a valid mobile number!
+            </Text>
+          )}
+          {errors.mobile_number?.type === "required" && (
+            <Text
+              style={{
+                color: "red",
+                marginTop: 2,
+                alignSelf: "flex-start",
+                marginLeft: 20,
+              }}
+            >
+              Mobile number is required!
+            </Text>
+          )}
+          <TouchableOpacity
+            onPress={handleSubmit(onsubmit)}
+            style={{
+              width: "90%",
+              marginTop: 20,
+              backgroundColor: "#00796A",
+              justifyContent: "center",
+              marginVertical: 8,
+            }}
+          >
+            <Text
+              style={{
+                color: "#fff",
+                fontSize: 20,
+                fontWeight: "bold",
+                alignSelf: "center",
+                paddingVertical: 14,
+              }}
+            >
+              LogIn
+            </Text>
+          </TouchableOpacity>
           {/* <Text>{val}</Text> */}
-          <PhoneInput
+          {/* <PhoneInput
             ref={phoneInput}
             defaultValue={phoneNumber}
             containerStyle={{
@@ -167,7 +293,7 @@ const Login = ({ navigation }) => {
             >
               Login
             </Text>
-          </Pressable>
+          </Pressable> */}
           {/* <View
             style={{
               flexDirection: "row",
@@ -209,8 +335,8 @@ const Login = ({ navigation }) => {
       </View>
     </View>
   );
-};
+}
 
-export default Login;
+//export default Login;
 
 const style = StyleSheet.create({});

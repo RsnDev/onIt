@@ -37,6 +37,7 @@ import Vehicles from "./src/Services Screen/Vehicles";
 import All from "./utils/Message/All";
 import Friends from "./utils/Message/Friends";
 import Technician from "./utils/Message/Technician";
+import Otp from "./backend/otp";
 
 const Stack = createNativeStackNavigator();
 const Navigation = () => {
@@ -44,6 +45,7 @@ const Navigation = () => {
     <NavigationContainer ref={createRef()}>
       <Stack.Navigator screenOptions={{ headerShown: false }}>
         <Stack.Screen name="Login" component={Login} />
+        <Stack.Screen name="Otp" component={Otp} />
         <Stack.Screen name="Signup" component={Signup} />
         <Stack.Screen name="Homem" component={Homem} />
         <Stack.Screen name="Wallet" component={Wallet} />
