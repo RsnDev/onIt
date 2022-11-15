@@ -146,7 +146,7 @@ const Plumber = ({ navigation }) => {
           width: "95%",
           backgroundColor: "#00796A",
           height: 50,
-          marginTop: 130,
+          marginTop: 90,
           marginLeft: 10,
           borderRadius: 3,
         }}

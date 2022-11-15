@@ -7,16 +7,25 @@ import {
   StatusBar,
   View,
   Color,
+  Dimensions,
   Image,
   TextInput,
   ImageRequireSource,
   TouchableOpacity,
   Alert,
 } from "react-native";
+const { height, width } = Dimensions.get("window");
 
 const Payment = ({ navigation }) => {
   return (
-    <View style={{ flex: 1, backgroundColor: "#F8F8F8" }}>
+    <View
+      style={{
+        flex: 1,
+        backgroundColor: "#F8F8F8",
+        height: height,
+        width: width,
+      }}
+    >
       <StatusBar
         barStyle="dark-content"
         hidden={false}
@@ -314,7 +323,7 @@ const Payment = ({ navigation }) => {
           width: "95%",
           backgroundColor: "#00796A",
           height: 50,
-          marginTop: 90,
+          marginTop: 60,
           marginLeft: 10,
           borderRadius: 3,
         }}
