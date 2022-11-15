@@ -12,6 +12,9 @@ import {
   ImageRequireSource,
   TouchableOpacity,
 } from "react-native";
+import { BottomSheet } from "react-native-btr";
+import { ScrollView } from "react-native-gesture-handler";
+import RNPickerSelect from "react-native-picker-select";
 
 const Plumber = ({ navigation }) => {
   const styleTypes = ["dark-content"];
@@ -19,13 +22,47 @@ const Plumber = ({ navigation }) => {
   const [styleStatusBar, setStyleStatusBar] = useState(styleTypes[0]);
   const [width, setWidth] = useState();
 
+  const [visible, setVisible] = useState(false);
+  const toggleBottomNavigationView = () => {
+    setVisible(!visible);
+  };
+
   return (
     <View style={styles.container}>
       <View style={styles.sectionStyle}>
-        <Image
-          source={require("../../assets/logo/location.png")}
-          style={styles.imageStyle}
-        />
+        <TouchableOpacity onPress={toggleBottomNavigationView}>
+          <Image
+            source={require("../../assets/logo/location.png")}
+            style={styles.imageStyle}
+          />
+        </TouchableOpacity>
+
+        <BottomSheet
+          visible={visible}
+          onBackButtonPress={toggleBottomNavigationView}
+          onBackdropPress={toggleBottomNavigationView}
+        >
+          <View
+            style={{
+              backgroundColor: "#fff",
+              width: "100%",
+              height: "60%",
+              justifyContent: "center",
+              alignItems: "center",
+            }}
+          >
+            <Text
+              style={{
+                textAlign: "center",
+                padding: 20,
+                fontSize: 20,
+              }}
+            >
+              Share Using
+            </Text>
+          </View>
+        </BottomSheet>
+
         <Text
           style={{
             flex: 0.5,
@@ -42,6 +79,8 @@ const Plumber = ({ navigation }) => {
           style={{ height: 25, width: 25 }}
         />
       </View>
+
+      {/* for choosed service section */}
       <View style={styles.plumberStyle}>
         <Image
           source={require("../../assets/logo/plmber.png")}
@@ -63,6 +102,7 @@ const Plumber = ({ navigation }) => {
           style={{ height: 25, width: 25 }}
         />
       </View>
+
       <View>
         <Text
           style={{
@@ -75,6 +115,8 @@ const Plumber = ({ navigation }) => {
           Please fill the details:
         </Text>
       </View>
+
+      {/* for requirement section */}
       <View style={styles.msgStyle}>
         <TextInput
           style={{
@@ -89,11 +131,14 @@ const Plumber = ({ navigation }) => {
           placeholderTextColor="#737373"
         />
       </View>
+
+      {/* for visit schedule */}
       <View style={styles.withinStyle}>
         <Image
           source={require("../../assets/logo/Clock.png")}
           style={{ height: 30, width: 25, marginLeft: 10 }}
         />
+
         <Text
           style={{
             flex: 1,
@@ -106,6 +151,8 @@ const Plumber = ({ navigation }) => {
           Visit Schedule
         </Text>
       </View>
+
+      {/* for coupon */}
       <View style={styles.couponStyle}>
         <Image
           source={require("../../assets/logo/tag.png")}
@@ -126,6 +173,7 @@ const Plumber = ({ navigation }) => {
         <Text style={{ color: "#0066FF" }}>change</Text>
       </View>
 
+      {/* for amount */}
       <View style={styles.cStyle}>
         <TextInput
           style={{

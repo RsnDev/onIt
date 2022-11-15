@@ -35,6 +35,9 @@ const Newtask = ({ navigation }) => {
         alignItems: "center",
       }}
     >
+      <TouchableOpacity onPress={toggle}>
+        <Text>hi</Text>
+      </TouchableOpacity>
       <BottomSheet
         visible={visible}
         onBackButtonPress={toggle}

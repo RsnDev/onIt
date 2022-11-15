@@ -1,7 +1,20 @@
 import React from "react";
+import {
+  Dimensions,
+  SafeAreaView,
+  StyleSheet,
+  View,
+  Text,
+  StatusBar,
+  Image,
+  ImageRequireSource,
+  TextInput,
+  TouchableOpacity,
+  ScrollView,
+} from "react-native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import Homemain from "../src/screens/Homemain";
-import { StyleSheet, StatusBar, View } from "react-native";
+//import { StyleSheet, StatusBar, View } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import Wallet from "../utils/tabs/Wallet";
 import Newtask from "../utils/tabs/Newtask";
@@ -45,6 +58,7 @@ const TabNavigator = (navigation) => {
             ),
           }}
         />
+
         <Tab.Screen
           name="Newtask"
           component={Newtask}
@@ -54,6 +68,7 @@ const TabNavigator = (navigation) => {
             ),
           }}
         />
+
         <Tab.Screen
           name="Message"
           component={Message}

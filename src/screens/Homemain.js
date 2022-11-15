@@ -16,9 +16,15 @@ import "react-native";
 import { Ionicons } from "@expo/vector-icons";
 import React, { useEffect } from "react";
 import { useState } from "react";
+import { BottomSheet } from "react-native-btr";
+
 const { height, width } = Dimensions.get("window");
 
 const Homemain = ({ navigation }) => {
+  const [visible, setVisible] = useState(false);
+  const toggleBottomNavigationView = () => {
+    setVisible(!visible);
+  };
   return (
     <View
       style={{
@@ -52,17 +58,44 @@ const Homemain = ({ navigation }) => {
             borderRadius: 4,
           }}
         >
-          <Image
-            source={require("../../assets/logo/111.png")}
-            style={{
-              padding: 10,
-              margin: 5,
-              height: 25,
-              width: 25,
-              resizeMode: "stretch",
-              alignItems: "center",
-            }}
-          />
+          <TouchableOpacity onPress={toggleBottomNavigationView}>
+            <Image
+              source={require("../../assets/logo/111.png")}
+              style={{
+                padding: 10,
+                margin: 5,
+                height: 25,
+                width: 25,
+                resizeMode: "stretch",
+                alignItems: "center",
+              }}
+            />
+          </TouchableOpacity>
+          <BottomSheet
+            visible={visible}
+            onBackButtonPress={toggleBottomNavigationView}
+            onBackdropPress={toggleBottomNavigationView}
+          >
+            <View
+              style={{
+                backgroundColor: "#fff",
+                width: "100%",
+                height: 250,
+                justifyContent: "center",
+                alignItems: "center",
+              }}
+            >
+              <Text
+                style={{
+                  textAlign: "center",
+                  padding: 20,
+                  fontSize: 20,
+                }}
+              >
+                Share Using
+              </Text>
+            </View>
+          </BottomSheet>
 
           <Text
             style={{
