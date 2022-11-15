@@ -44,9 +44,9 @@ const Navigation = () => {
   return (
     <NavigationContainer ref={createRef()}>
       <Stack.Navigator screenOptions={{ headerShown: false }}>
-        {/* <Stack.Screen name="Login" component={Login} /> */}
-        {/* <Stack.Screen name="Otp" component={Otp} /> */}
-        {/* <Stack.Screen name="Signup" component={Signup} /> */}
+        <Stack.Screen name="Login" component={Login} />
+        <Stack.Screen name="Otp" component={Otp} />
+        <Stack.Screen name="Signup" component={Signup} />
         <Stack.Screen name="Homem" component={Homem} />
         <Stack.Screen name="Wallet" component={Wallet} />
         <Stack.Screen name="Newtask" component={Newtask} />
