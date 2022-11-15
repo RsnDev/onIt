@@ -46,7 +46,7 @@ export default function Login({ navigation, route }) {
     try {
       await axios({
         method: "post",
-        url: "http://13.233.128.85:8000/center/sent-otp",
+        url: "https://api.onit.fit/center/sent-otp",
         data: payload,
         confif: {
           headers: {

@@ -35,7 +35,7 @@ const Otp = ({ navigation, route }) => {
     try {
       await axios({
         method: "post",
-        url: "http://13.233.128.85:8000/center/verify-otp",
+        url: "https://api.onit.fit/center/verify-otp",
         data: payload,
       }).then((res) => {
         console.log(res.data);
