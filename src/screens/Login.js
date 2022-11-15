@@ -127,7 +127,7 @@ export default function Login({ navigation, route }) {
           borderTopRightRadius: 50,
           //borderWidth: 0.5,
           borderColor: "#ddd",
-          marginTop: 50,
+          marginTop: 30,
           shadowColor: "black",
           shadowOffset: {
             width: 0,

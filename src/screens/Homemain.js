@@ -16,7 +16,6 @@ import "react-native";
 import { Ionicons } from "@expo/vector-icons";
 import React, { useEffect } from "react";
 import { useState } from "react";
-
 const { height, width } = Dimensions.get("window");
 
 const Homemain = ({ navigation }) => {
@@ -64,6 +63,7 @@ const Homemain = ({ navigation }) => {
               alignItems: "center",
             }}
           />
+
           <Text
             style={{
               flex: 1,
@@ -75,6 +75,7 @@ const Homemain = ({ navigation }) => {
           >
             Sector XXX, Noida
           </Text>
+
           <Image
             source={require("../../assets/logo/alert.png")}
             style={{
@@ -87,6 +88,7 @@ const Homemain = ({ navigation }) => {
             }}
           />
         </View>
+
         {/* for search box        */}
 
         <View
@@ -146,6 +148,8 @@ const Homemain = ({ navigation }) => {
           borderTopRightRadius: 40,
           shadowColor: "#00000014",
           shadowRadius: 20,
+          height: height,
+          width: width,
         }}
       >
         <Text
