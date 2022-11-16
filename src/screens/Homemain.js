@@ -235,88 +235,92 @@ const Homemain = ({ navigation }) => {
         </Text>
 
         {/* For services  */}
-
-        {/* <ScrollView> */}
-        <View style={styles.container}>
-          <TouchableOpacity
-            style={styles.button0}
-            onPress={() => navigation.navigate("ServiceNeeds")}
-          >
-            <Image
-              style={{ marginTop: 1, marginLeft: 35, height: 40, width: 40 }}
-              source={require("../../assets/logo/Service.png")}
-            />
-            <Text style={{ marginTop: 12, marginLeft: 10, height: 18 }}>
-              Service Needs
-            </Text>
-          </TouchableOpacity>
-          <TouchableOpacity
-            style={styles.button2}
-            onPress={() => navigation.navigate("MoneyManager")}
-          >
-            <Image
-              style={{ marginTop: 1, marginLeft: 35, height: 40, width: 40 }}
-              source={require("../../assets/logo/Money.png")}
-            />
-            <Text style={{ marginTop: 12, marginLeft: 10, height: 18 }}>
-              Money Manager
-            </Text>
-          </TouchableOpacity>
+        <View
+          style={{
+            height: 100,
+            width: 100,
+          }}
+        >
+          <View style={styles.container}>
+            <TouchableOpacity
+              style={styles.button0}
+              onPress={() => navigation.navigate("ServiceNeeds")}
+            >
+              <Image
+                style={{ marginTop: 1, marginLeft: 35, height: 40, width: 40 }}
+                source={require("../../assets/logo/Service.png")}
+              />
+              <Text style={{ marginTop: 12, marginLeft: 10, height: 18 }}>
+                Service Needs
+              </Text>
+            </TouchableOpacity>
+            <TouchableOpacity
+              style={styles.button2}
+              onPress={() => navigation.navigate("MoneyManager")}
+            >
+              <Image
+                style={{ marginTop: 1, marginLeft: 35, height: 40, width: 40 }}
+                source={require("../../assets/logo/Money.png")}
+              />
+              <Text style={{ marginTop: 12, marginLeft: 10, height: 18 }}>
+                Money Manager
+              </Text>
+            </TouchableOpacity>
+          </View>
+          <View style={styles.container}>
+            <TouchableOpacity
+              style={styles.button1}
+              onPress={() => navigation.navigate("TaskManager")}
+            >
+              <Image
+                style={{ marginTop: 0, marginLeft: 35, height: 40, width: 40 }}
+                source={require("../../assets/logo/Task.png")}
+              />
+              <Text style={{ marginTop: 12, marginLeft: 10, height: 18 }}>
+                Task Manager
+              </Text>
+            </TouchableOpacity>
+            <TouchableOpacity
+              style={styles.button2}
+              onPress={() => navigation.navigate("Contacts")}
+            >
+              <Image
+                style={{ marginTop: 1, marginLeft: 35, height: 40, width: 40 }}
+                source={require("../../assets/logo/Contact.png")}
+              />
+              <Text style={{ marginTop: 12, marginLeft: 28, height: 18 }}>
+                Contacts
+              </Text>
+            </TouchableOpacity>
+          </View>
+          <View style={styles.container}>
+            <TouchableOpacity
+              style={styles.button1}
+              // onPress={() => navigation.navigate("PersonalCare")}
+              onPress={() => alert("coming soon")}
+            >
+              <Image
+                style={{ marginTop: 1, marginLeft: 35, height: 40, width: 40 }}
+                source={require("../../assets/logo/Pesonal.png")}
+              />
+              <Text style={{ marginTop: 12, marginLeft: 10, height: 18 }}>
+                Personal Care
+              </Text>
+            </TouchableOpacity>
+            <TouchableOpacity
+              style={styles.button2}
+              onPress={() => navigation.navigate("Reminders")}
+            >
+              <Image
+                style={{ marginTop: 1, marginLeft: 35, height: 40, width: 40 }}
+                source={require("../../assets/logo/Reminder.png")}
+              />
+              <Text style={{ marginTop: 12, marginLeft: 22, height: 18 }}>
+                Reminders
+              </Text>
+            </TouchableOpacity>
+          </View>
         </View>
-        <View style={styles.container}>
-          <TouchableOpacity
-            style={styles.button1}
-            onPress={() => navigation.navigate("TaskManager")}
-          >
-            <Image
-              style={{ marginTop: 0, marginLeft: 35, height: 40, width: 40 }}
-              source={require("../../assets/logo/Task.png")}
-            />
-            <Text style={{ marginTop: 12, marginLeft: 10, height: 18 }}>
-              Task Manager
-            </Text>
-          </TouchableOpacity>
-          <TouchableOpacity
-            style={styles.button2}
-            onPress={() => navigation.navigate("Contacts")}
-          >
-            <Image
-              style={{ marginTop: 1, marginLeft: 35, height: 40, width: 40 }}
-              source={require("../../assets/logo/Contact.png")}
-            />
-            <Text style={{ marginTop: 12, marginLeft: 28, height: 18 }}>
-              Contacts
-            </Text>
-          </TouchableOpacity>
-        </View>
-        <View style={styles.container}>
-          <TouchableOpacity
-            style={styles.button1}
-            // onPress={() => navigation.navigate("PersonalCare")}
-            onPress={() => alert("coming soon")}
-          >
-            <Image
-              style={{ marginTop: 1, marginLeft: 35, height: 40, width: 40 }}
-              source={require("../../assets/logo/Pesonal.png")}
-            />
-            <Text style={{ marginTop: 12, marginLeft: 10, height: 18 }}>
-              Personal Care
-            </Text>
-          </TouchableOpacity>
-          <TouchableOpacity
-            style={styles.button2}
-            onPress={() => navigation.navigate("Reminders")}
-          >
-            <Image
-              style={{ marginTop: 1, marginLeft: 35, height: 40, width: 40 }}
-              source={require("../../assets/logo/Reminder.png")}
-            />
-            <Text style={{ marginTop: 12, marginLeft: 22, height: 18 }}>
-              Reminders
-            </Text>
-          </TouchableOpacity>
-        </View>
-        {/* </ScrollView> */}
       </View>
     </View>
   );
@@ -332,8 +336,8 @@ const styles = StyleSheet.create({
     alignItems: "flex-start",
     marginLeft: 20,
     marginTop: 10,
-    height: 112,
-    width: 165,
+    height: 107,
+    width: 100,
   },
   button0: {
     backgroundColor: "#F8F8F8",

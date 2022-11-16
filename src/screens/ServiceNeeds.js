@@ -356,7 +356,7 @@ const styles = StyleSheet.create({
     marginLeft: 25,
     marginTop: 10,
     height: 102,
-    width: "95%",
+    width: "93%",
   },
   button0: {
     backgroundColor: "#F8F8F8",

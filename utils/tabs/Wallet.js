@@ -62,7 +62,7 @@ const Wallet = ({ navigation }) => {
       <View
         style={{
           flexDirection: "row",
-          height: 115,
+          height: 105,
           backgroundColor: "#00796A",
         }}
       >
@@ -146,15 +146,16 @@ const Wallet = ({ navigation }) => {
         <View
           style={{
             flexDirection: "column",
-            marginLeft: 40,
+            marginLeft: 30,
             marginTop: 27,
+            marginRight: 10,
           }}
         >
           <TouchableOpacity>
             <View
               style={{
                 height: 40,
-                width: 130,
+                width: 110,
                 backgroundColor: "#00796A",
                 justifyContent: "center",
                 alignItems: "center",
@@ -176,7 +177,7 @@ const Wallet = ({ navigation }) => {
             <View
               style={{
                 height: 40,
-                width: 130,
+                width: 110,
                 justifyContent: "center",
                 alignItems: "center",
                 backgroundColor: "#0066FF",

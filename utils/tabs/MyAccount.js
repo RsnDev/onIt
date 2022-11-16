@@ -30,7 +30,7 @@ const MyAccount = ({ navigation }) => {
           style={{
             flexDirection: "column",
             //  justifyContent: "center",
-            height: 180,
+            height: 160,
             alignItems: "center",
             backgroundColor: "#00796A",
             //opacity: 0.7,
@@ -50,8 +50,8 @@ const MyAccount = ({ navigation }) => {
           <Image
             source={require("../../assets/image/naruto.png")}
             style={{
-              height: 110,
-              width: 110,
+              height: 90,
+              width: 90,
               marginTop: 10,
               marginLeft: 2,
               borderRadius: 60,
@@ -335,7 +335,7 @@ const MyAccount = ({ navigation }) => {
               alignItems: "center",
               width: "25%",
               height: 40,
-              marginTop: 55,
+              marginTop: 40,
               marginBottom: 50,
               marginLeft: 10,
               borderRadius: 3,
