@@ -46,19 +46,20 @@ const Plumber = ({ navigation }) => {
             style={{
               backgroundColor: "#fff",
               width: "100%",
-              height: "60%",
-              justifyContent: "center",
-              alignItems: "center",
+              height: "50%",
+              justifyContent: "flex-start",
+              alignItems: "flex-start",
             }}
           >
             <Text
               style={{
                 textAlign: "center",
                 padding: 20,
-                fontSize: 20,
+                fontSize: 15,
+                fontWeight: "600",
               }}
             >
-              Share Using
+              Search Location
             </Text>
           </View>
         </BottomSheet>
