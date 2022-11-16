@@ -138,6 +138,7 @@ const ServiceNeeds = ({ navigation }) => {
       <View
         style={{
           flex: 11,
+          marginTop: 5,
           backgroundColor: "#fff",
           borderTopLeftRadius: 40,
           borderTopRightRadius: 40,
