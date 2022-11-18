@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import {
   SafeAreaView,
   Button,
@@ -14,13 +14,15 @@ import {
 } from "react-native";
 import { BottomSheet } from "react-native-btr";
 import { ScrollView } from "react-native-gesture-handler";
-import RNPickerSelect from "react-native-picker-select";
+import { Picker } from "@react-native-picker/picker";
 
 const Plumber = ({ navigation }) => {
   const styleTypes = ["dark-content"];
   const [visibleStatusBar, setVisibleStatusBar] = useState(false);
   const [styleStatusBar, setStyleStatusBar] = useState(styleTypes[0]);
   const [width, setWidth] = useState();
+
+  const [selectedValue, setSelectedValue] = useState("Immediately");
 
   const [visible, setVisible] = useState(false);
   const toggleBottomNavigationView = () => {
@@ -137,10 +139,26 @@ const Plumber = ({ navigation }) => {
       <View style={styles.withinStyle}>
         <Image
           source={require("../../assets/logo/Clock.png")}
-          style={{ height: 30, width: 25, marginLeft: 10 }}
+          style={{
+            height: 30,
+            width: 25,
+            marginLeft: 10,
+            justifyContent: "flex-start",
+          }}
         />
-
-        <Text
+        <Picker
+          selectedValue={selectedValue}
+          style={{ height: 60, width: 250, fontWeight: "600" }}
+          onValueChange={(itemValue, itemIndex) => setSelectedValue(itemValue)}
+        >
+          <Picker.Item label="Immediately" value="Immediately" />
+          <Picker.Item label="With in 24 Hours" value="With in 24 Hours" />
+          <Picker.Item
+            label="Specific Date & time"
+            value="Specific Date & time"
+          />
+        </Picker>
+        {/* <Text
           style={{
             flex: 1,
             fontWeight: "700",
@@ -150,7 +168,7 @@ const Plumber = ({ navigation }) => {
           }}
         >
           Visit Schedule
-        </Text>
+        </Text> */}
       </View>
 
       {/* for coupon */}
@@ -269,7 +287,7 @@ const styles = StyleSheet.create({
   },
   withinStyle: {
     flexDirection: "row",
-    justifyContent: "center",
+    justifyContent: "space-around",
     alignItems: "center",
     backgroundColor: "#fff",
     height: 56,
