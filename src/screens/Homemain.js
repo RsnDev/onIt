@@ -186,6 +186,7 @@ const Homemain = ({ navigation }) => {
           width: width,
         }}
       >
+        {/* for recommended services */}
         <Text
           style={{
             justifyContent: "center",
@@ -197,6 +198,8 @@ const Homemain = ({ navigation }) => {
         >
           Recommended Services:
         </Text>
+
+        {/* for img swiper  */}
         <View
           style={{
             flexDirection: "row",

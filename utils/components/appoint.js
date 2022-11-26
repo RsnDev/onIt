@@ -57,6 +57,10 @@ const styles = StyleSheet.create({
   itemText: {
     maxWidth: "80%",
     height: 20,
+    margin: 10,
+    marginTop: 10,
+    marginLeft: 15,
+    fontWeight: "600",
   },
   circular: {
     width: 12,

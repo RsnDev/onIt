@@ -10,6 +10,7 @@ import {
   ScrollView,
 } from "react-native";
 import Task from "../../utils/components/appoint";
+import { Calendar } from "react-native-calendars";
 
 export default function App() {
   const [task, setTask] = useState();
@@ -39,6 +40,12 @@ export default function App() {
         {/* Today's Tasks */}
         <View style={styles.tasksWrapper}>
           <Text style={styles.sectionTitle}>Reminders</Text>
+          <Calendar
+            style={{ height: "50%" }}
+            enableSwipeMonths
+            minDate="2022-01-01"
+            maxDate="2042-01-01"
+          />
           <View style={styles.items}>
             {/* This is where the tasks will go! */}
             {taskItems.map((item, index) => {
@@ -63,7 +70,7 @@ export default function App() {
       >
         <TextInput
           style={styles.input}
-          placeholder={"Write a task"}
+          placeholder={"Reminders"}
           value={task}
           onChangeText={(text) => setTask(text)}
         />
@@ -90,6 +97,7 @@ const styles = StyleSheet.create({
     fontSize: 24,
     fontWeight: "bold",
     marginLeft: 15,
+    marginBottom: 10,
   },
   items: {
     marginTop: 20,
@@ -107,7 +115,7 @@ const styles = StyleSheet.create({
     paddingVertical: 15,
     paddingHorizontal: 15,
     backgroundColor: "#FFF",
-    borderRadius: 60,
+    borderRadius: 10,
     borderColor: "#C0C0C0",
     borderWidth: 1,
     width: 250,

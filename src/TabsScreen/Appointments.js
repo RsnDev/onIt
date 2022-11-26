@@ -63,7 +63,7 @@ export default function App() {
       >
         <TextInput
           style={styles.input}
-          placeholder={"Write a task"}
+          placeholder={"Appoitments"}
           value={task}
           onChangeText={(text) => setTask(text)}
         />
@@ -104,13 +104,14 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   input: {
-    paddingVertical: 15,
+    // paddingVertical: 15,
     paddingHorizontal: 15,
     backgroundColor: "#FFF",
-    borderRadius: 60,
+    borderRadius: 10,
     borderColor: "#C0C0C0",
     borderWidth: 1,
     width: 250,
+    height: 40,
   },
   addWrapper: {
     width: 60,
