@@ -227,6 +227,7 @@ const Payment = ({ navigation }) => {
             color: "black",
             marginLeft: 15,
           }}
+          label="Email"
           placeholder="Card Holder Name "
           underlineColorAndroid="transparent"
           placeholderTextColor="#737373"

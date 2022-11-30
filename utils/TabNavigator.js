@@ -30,6 +30,8 @@ const TabNavigator = (navigation) => {
       <StatusBar
         barStyle="light-content"
         hidden={false}
+        //translucent
+        //backgroundColor="transparent"
         backgroundColor="#00796A"
       />
       <Tab.Navigator

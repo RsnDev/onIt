@@ -11,6 +11,7 @@ import {
   TextInput,
   ImageRequireSource,
   TouchableOpacity,
+  ToastAndroid,
 } from "react-native";
 import { BottomSheet } from "react-native-btr";
 import { ScrollView } from "react-native-gesture-handler";
@@ -28,6 +29,69 @@ const Plumber = ({ navigation }) => {
   const [visible, setVisible] = useState(false);
   const toggleBottomNavigationView = () => {
     setVisible(!visible);
+  };
+
+  const onsubmit = async ({ personal_details }) => {
+    setVisible(true);
+    // let payload = {
+    //   country_code: "+" + phoneInput.current?.getCallingCode(),
+    //   mobile_number,
+    // };
+    let payload = {
+      personal_details: {
+        primary_phone: {
+          country_code: "+91",
+          mobile_number: "8299044137",
+        },
+        alternate_phone: {
+          country_code: "+91",
+          mobile_number: "8299044137",
+        },
+        name: "Testing",
+      },
+      specific_requirement: "Air",
+      service_provided_for: "6373436f1307e26d44ac8cdb",
+      address_details: {
+        house_number:
+          "Ho No. 2577 sainik colony sector 49 ,Noida , Uttar Pradesh",
+        locality: "sector142",
+        city: "Noida",
+        state: "Uttar Pradesh",
+        pincode: "201301",
+        country: "INDIA",
+      },
+      time_preference: {
+        time_preference_type: "WITHIN_24_HOURS",
+        specific_date_time: "2022-11-18T09:42:47.361Z",
+      },
+      offers_applied: {
+        offer_code: "OniT 2022",
+      },
+    };
+
+    console.log(payload);
+    try {
+      await axios({
+        method: "post",
+        url: "https://api.onit.services/center/public-ticket-booking",
+        data: payload,
+        confif: {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        },
+      }).then(() => {
+        setVisible(false);
+        ToastAndroid.show("Request Raised", ToastAndroid.SHORT);
+        navigation.navigate("Payment", { data: payload });
+      });
+    } catch (error) {
+      setVisible(false);
+      ToastAndroid.show(
+        error?.response?.data?.message + "!",
+        ToastAndroid.SHORT
+      );
+    }
   };
 
   return (
@@ -54,7 +118,156 @@ const Plumber = ({ navigation }) => {
               alignItems: "flex-start",
             }}
           >
-            <Text>Search Location</Text>
+            <Text
+              style={{
+                margin: 5,
+                marginLeft: 15,
+              }}
+            >
+              Fill the details:
+            </Text>
+            {/* alternate no */}
+            <View style={styles.msgStyle}>
+              <TextInput
+                style={{
+                  flex: 1,
+                  fontWeight: "700",
+                  fontSize: 15,
+                  color: "black",
+                  marginLeft: 15,
+                }}
+                placeholder="Alternate Mobile no "
+                underlineColorAndroid="transparent"
+                placeholderTextColor="#737373"
+              />
+            </View>
+            {/* House no */}
+            <View style={styles.msgStyle}>
+              <TextInput
+                style={{
+                  flex: 1,
+                  fontWeight: "700",
+                  fontSize: 15,
+                  color: "black",
+                  marginLeft: 15,
+                }}
+                placeholder="House no "
+                underlineColorAndroid="transparent"
+                placeholderTextColor="#737373"
+              />
+            </View>
+
+            {/* Locality  */}
+            <View style={styles.msgStyle}>
+              <TextInput
+                style={{
+                  flex: 1,
+                  fontWeight: "700",
+                  fontSize: 15,
+                  color: "black",
+                  marginLeft: 15,
+                }}
+                placeholder="Locality "
+                underlineColorAndroid="transparent"
+                placeholderTextColor="#737373"
+              />
+            </View>
+            {/* City & pin code */}
+            <View
+              style={{
+                flexDirection: "row",
+                justifyContent: "space-around",
+                alignItems: "center",
+                marginLeft: 22,
+                marginRight: 22,
+              }}
+            >
+              <TextInput
+                style={{
+                  fontWeight: "600",
+                  fontSize: 15,
+                  color: "black",
+                  borderRadius: 2,
+                  borderWidth: 1,
+                  borderColor: "#ddd",
+                  backgroundColor: "#fff",
+                  height: 56,
+                  width: "48%",
+                  padding: 20,
+                  marginTop: 0,
+                }}
+                placeholder="City "
+                underlineColorAndroid="transparent"
+                placeholderTextColor="#737373"
+              />
+              <TextInput
+                style={{
+                  fontWeight: "600",
+                  fontSize: 15,
+                  color: "black",
+                  borderRadius: 2,
+                  borderWidth: 1,
+                  borderColor: "#ddd",
+                  backgroundColor: "#fff",
+                  height: 56,
+                  width: "48%",
+                  padding: 20,
+                  marginTop: 0,
+                }}
+                placeholder="Pincode "
+                underlineColorAndroid="transparent"
+                placeholderTextColor="#737373"
+              />
+            </View>
+
+            {/* State & Country */}
+            <View
+              style={{
+                flexDirection: "row",
+                justifyContent: "space-around",
+                alignItems: "center",
+                marginLeft: 22,
+                marginRight: 22,
+              }}
+            >
+              <TextInput
+                style={{
+                  fontWeight: "600",
+                  fontSize: 15,
+                  color: "black",
+                  borderRadius: 2,
+                  borderWidth: 1,
+                  borderColor: "#ddd",
+                  backgroundColor: "#fff",
+                  height: 56,
+                  width: "48%",
+                  padding: 20,
+                  marginTop: 10,
+                }}
+                placeholder="State "
+                underlineColorAndroid="transparent"
+                placeholderTextColor="#737373"
+              />
+              <TextInput
+                style={{
+                  fontWeight: "600",
+                  fontSize: 15,
+                  color: "black",
+                  borderRadius: 2,
+                  borderWidth: 1,
+                  borderColor: "#ddd",
+                  backgroundColor: "#fff",
+                  height: 56,
+                  width: "48%",
+                  padding: 20,
+                  marginTop: 10,
+                }}
+                placeholder="Country "
+                underlineColorAndroid="transparent"
+                placeholderTextColor="#737373"
+                defaultValue="India"
+              />
+            </View>
           </View>
         </BottomSheet>
 
@@ -112,208 +325,50 @@ const Plumber = ({ navigation }) => {
       </View>
 
       {/* for Details section */}
-      <View style={{ height: 250, marginTop: 5 }}>
-        <ScrollView>
-          {/* For name */}
-          <View style={styles.msgStyle}>
-            <TextInput
-              style={{
-                flex: 1,
-                fontWeight: "700",
-                fontSize: 15,
-                color: "black",
-                marginLeft: 15,
-              }}
-              placeholder="Enter your full Name "
-              underlineColorAndroid="transparent"
-              placeholderTextColor="#737373"
-              onChangeText={(text) => this.updateValue(text, "name")}
-            />
-          </View>
-          {/* For mobile no */}
-          <View style={styles.msgStyle}>
-            <TextInput
-              style={{
-                flex: 1,
-                fontWeight: "700",
-                fontSize: 15,
-                color: "black",
-                marginLeft: 15,
-              }}
-              placeholder="Mobile No "
-              underlineColorAndroid="transparent"
-              placeholderTextColor="#737373"
-            />
-          </View>
-          {/* alternate no */}
-          <View style={styles.msgStyle}>
-            <TextInput
-              style={{
-                flex: 1,
-                fontWeight: "700",
-                fontSize: 15,
-                color: "black",
-                marginLeft: 15,
-              }}
-              placeholder="Alternate Mobile no "
-              underlineColorAndroid="transparent"
-              placeholderTextColor="#737373"
-            />
-          </View>
-          {/* House no */}
-          <View style={styles.msgStyle}>
-            <TextInput
-              style={{
-                flex: 1,
-                fontWeight: "700",
-                fontSize: 15,
-                color: "black",
-                marginLeft: 15,
-              }}
-              placeholder="House no "
-              underlineColorAndroid="transparent"
-              placeholderTextColor="#737373"
-            />
-          </View>
-
-          {/* Locality  */}
-          <View style={styles.msgStyle}>
-            <TextInput
-              style={{
-                flex: 1,
-                fontWeight: "700",
-                fontSize: 15,
-                color: "black",
-                marginLeft: 15,
-              }}
-              placeholder="Locality "
-              underlineColorAndroid="transparent"
-              placeholderTextColor="#737373"
-            />
-          </View>
-          {/* City & pin code */}
-          <View
+      <View style={{ height: 150, marginTop: 10 }}>
+        {/* For name */}
+        <View style={styles.msgStyle}>
+          <TextInput
             style={{
-              flexDirection: "row",
-              justifyContent: "space-around",
-              alignItems: "center",
-              marginLeft: 22,
-              marginRight: 22,
+              flex: 1,
+              fontWeight: "700",
+              fontSize: 15,
+              color: "black",
+              marginLeft: 15,
             }}
-          >
-            <TextInput
-              style={{
-                fontWeight: "600",
-                fontSize: 15,
-                color: "black",
-                borderRadius: 2,
-                borderWidth: 1,
-                borderColor: "#ddd",
-                backgroundColor: "#fff",
-                height: 56,
-                width: "48%",
-                padding: 20,
-                marginTop: 0,
-              }}
-              placeholder="City "
-              underlineColorAndroid="transparent"
-              placeholderTextColor="#737373"
-            />
-            <TextInput
-              style={{
-                fontWeight: "600",
-                fontSize: 15,
-                color: "black",
-                borderRadius: 2,
-                borderWidth: 1,
-                borderColor: "#ddd",
-                backgroundColor: "#fff",
-                height: 56,
-                width: "48%",
-                padding: 20,
-                marginTop: 0,
-              }}
-              placeholder="Pincode "
-              underlineColorAndroid="transparent"
-              placeholderTextColor="#737373"
-            />
-          </View>
+            placeholder="Specific Requirement "
+            underlineColorAndroid="transparent"
+            placeholderTextColor="#737373"
+            onChangeText={(text) => this.updateValue(text, "name")}
+          />
+        </View>
 
-          {/* State & Country */}
-          <View
+        {/* for visit schedule */}
+        <View style={styles.withinStyle}>
+          <Image
+            source={require("../../assets/logo/Clock.png")}
             style={{
-              flexDirection: "row",
-              justifyContent: "space-around",
-              alignItems: "center",
-              marginLeft: 22,
-              marginRight: 22,
+              height: 30,
+              width: 25,
+              marginLeft: 10,
+              justifyContent: "flex-start",
             }}
+          />
+          <Picker
+            selectedValue={selectedValue}
+            style={{ height: 60, width: 250, fontWeight: "600" }}
+            onValueChange={(itemValue, itemIndex) =>
+              setSelectedValue(itemValue)
+            }
           >
-            <TextInput
-              style={{
-                fontWeight: "600",
-                fontSize: 15,
-                color: "black",
-                borderRadius: 2,
-                borderWidth: 1,
-                borderColor: "#ddd",
-                backgroundColor: "#fff",
-                height: 56,
-                width: "48%",
-                padding: 20,
-                marginTop: 10,
-              }}
-              placeholder="State "
-              underlineColorAndroid="transparent"
-              placeholderTextColor="#737373"
+            <Picker.Item label="Immediately" value="Immediately" />
+            <Picker.Item label="Within 24 Hours" value="Within 24 Hours" />
+            <Picker.Item
+              label="Specific Date & time"
+              value="Specific Date & time"
             />
-            <TextInput
-              style={{
-                fontWeight: "600",
-                fontSize: 15,
-                color: "black",
-                borderRadius: 2,
-                borderWidth: 1,
-                borderColor: "#ddd",
-                backgroundColor: "#fff",
-                height: 56,
-                width: "48%",
-                padding: 20,
-                marginTop: 10,
-              }}
-              placeholder="Country "
-              underlineColorAndroid="transparent"
-              placeholderTextColor="#737373"
-              defaultValue="India"
-            />
-          </View>
-
-          {/* for visit schedule */}
-          <View style={styles.withinStyle}>
-            <Image
-              source={require("../../assets/logo/Clock.png")}
-              style={{
-                height: 30,
-                width: 25,
-                marginLeft: 10,
-                justifyContent: "flex-start",
-              }}
-            />
-            <Picker
-              selectedValue={selectedValue}
-              style={{ height: 60, width: 250, fontWeight: "600" }}
-              onValueChange={(itemValue, itemIndex) =>
-                setSelectedValue(itemValue)
-              }
-            >
-              <Picker.Item label="Immediately" value="Immediately" />
-              <Picker.Item label="Within 24 Hours" value="Within 24 Hours" />
-              <Picker.Item
-                label="Specific Date & time"
-                value="Specific Date & time"
-              />
-            </Picker>
-            {/* <Text
+          </Picker>
+          {/* <Text
           style={{
             flex: 1,
             fontWeight: "700",
@@ -324,8 +379,7 @@ const Plumber = ({ navigation }) => {
         >
           Visit Schedule
         </Text> */}
-          </View>
-        </ScrollView>
+        </View>
       </View>
 
       {/* for coupon */}
@@ -351,17 +405,41 @@ const Plumber = ({ navigation }) => {
 
       {/* for amount */}
       <View style={styles.cStyle}>
-        <TextInput
+        <View
           style={{
-            flex: 1,
-            fontWeight: "700",
-            fontSize: 18,
-            color: "black",
-            marginLeft: 5,
+            flexDirection: "row",
+            justifyContent: "space-between",
+            alignItems: "stretch",
+            margin: 10,
           }}
-          placeholder="OniT 2022"
-          underlineColorAndroid="transparent"
-        />
+        >
+          <Text>ADVANCE</Text>
+          <Text>₹99</Text>
+        </View>
+        <View
+          style={{
+            flexDirection: "row",
+            justifyContent: "space-between",
+            alignItems: "stretch",
+            margin: 10,
+          }}
+        >
+          <Text>Service Total</Text>
+          <Text>₹200</Text>
+        </View>
+        <View
+          style={{
+            flexDirection: "row",
+            justifyContent: "space-between",
+            alignItems: "stretch",
+            margin: 10,
+          }}
+        >
+          <Text>Total</Text>
+          <Text style={{ fontSize: 16, fontWeight: "600", color: "#00796A" }}>
+            ₹200
+          </Text>
+        </View>
       </View>
 
       <TouchableOpacity
@@ -370,14 +448,15 @@ const Plumber = ({ navigation }) => {
           width: "95%",
           backgroundColor: "#00796A",
           height: 50,
-          marginTop: 40,
+          marginTop: 60,
           marginLeft: 10,
           borderRadius: 3,
         }}
         //</View>onPress={() => { console.log("coming soon") }}>
         onPress={() => {
-          navigation.navigate("Payment");
+          navigation.navigate("SuccessFull");
         }}
+        //onPress={onsubmit}
       >
         <Text
           style={{
@@ -435,9 +514,9 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     backgroundColor: "#fff",
-    height: 48,
+    height: 50,
     marginLeft: 22,
-    marginBottom: 15,
+    marginBottom: 10,
     marginRight: 22,
     borderRadius: 4,
     borderWidth: 1,
@@ -467,9 +546,9 @@ const styles = StyleSheet.create({
     borderStyle: "dashed",
   },
   cStyle: {
-    flexDirection: "row",
-    justifyContent: "center",
-    alignItems: "center",
+    //flexDirection: "row",
+    // justifyContent: "center",
+    // alignItems: "center",
     backgroundColor: "#fff",
     height: 130,
     marginTop: 24,

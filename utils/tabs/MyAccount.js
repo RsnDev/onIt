@@ -20,17 +20,13 @@ const MyAccount = ({ navigation }) => {
         source={require("../../assets/image/bg.png")}
         style={{ opacity: 50 }}
       >
-        <StatusBar
-          barStyle="dark-content"
-          hidden={false}
-          backgroundColor="#fff"
-        />
+        <StatusBar translucent backgroundColor="transparent" />
 
         <View
           style={{
             flexDirection: "column",
             //  justifyContent: "center",
-            height: 160,
+            height: 170,
             alignItems: "center",
             backgroundColor: "#00796A",
             //opacity: 0.7,
@@ -41,7 +37,7 @@ const MyAccount = ({ navigation }) => {
             style={{
               fontSize: 21,
               fontWeight: "700",
-              marginTop: 10,
+              marginTop: 20,
               color: "#fff",
             }}
           >

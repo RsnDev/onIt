@@ -10,6 +10,7 @@ import {
   TextInput,
   TouchableOpacity,
   ScrollView,
+  Platform,
 } from "react-native";
 import { Colors } from "react-native/Libraries/NewAppScreen";
 import "react-native";
@@ -17,7 +18,9 @@ import { Ionicons } from "@expo/vector-icons";
 import React, { useEffect } from "react";
 import { useState } from "react";
 import { BottomSheet } from "react-native-btr";
-
+import * as Location from "expo-location";
+//import { text } from "../../utils/components/location";
+//import { SliderBox } from "react-native-image-slider-box";
 const { height, width } = Dimensions.get("window");
 
 const Homemain = ({ navigation }) => {
@@ -25,6 +28,35 @@ const Homemain = ({ navigation }) => {
   const toggleBottomNavigationView = () => {
     setVisible(!visible);
   };
+  const [location, setLocation] = useState(null);
+  const [errorMsg, setErrorMsg] = useState(null);
+  const [address, setAddress] = useState(null);
+
+  useEffect(() => {
+    (async () => {
+      let { status } = await Location.requestForegroundPermissionsAsync();
+      if (status !== "granted") {
+        setErrorMsg("Permission to access location was denied");
+        return;
+      }
+
+      let location = await Location.getCurrentPositionAsync({});
+      let address = await Location.reverseGeocodeAsync(location.coords);
+
+      // console.log(location);
+      //console.log(address);
+      //setLocation(location);
+      setAddress(address);
+    })();
+  }, []);
+
+  let text = "Waiting..";
+  if (errorMsg) {
+    text = errorMsg;
+  } else if (address) {
+    text = JSON.stringify(address);
+  }
+
   return (
     <View
       style={{
@@ -106,7 +138,8 @@ const Homemain = ({ navigation }) => {
               marginLeft: 5,
             }}
           >
-            Sector XXX, Noida
+            {text}
+            {/* Sector XXX, Noida */}
           </Text>
 
           <Image

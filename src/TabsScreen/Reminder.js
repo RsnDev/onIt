@@ -41,7 +41,7 @@ export default function App() {
         <View style={styles.tasksWrapper}>
           <Text style={styles.sectionTitle}>Reminders</Text>
           <Calendar
-            style={{ height: "50%" }}
+            style={{ height: "45%" }}
             enableSwipeMonths
             minDate="2022-01-01"
             maxDate="2042-01-01"
