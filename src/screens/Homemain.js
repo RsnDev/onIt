@@ -44,7 +44,7 @@ const Homemain = ({ navigation }) => {
       let address = await Location.reverseGeocodeAsync(location.coords);
 
       // console.log(location);
-      //console.log(address);
+      console.log(address);
       //setLocation(location);
       setAddress(address);
     })();

@@ -12,6 +12,7 @@ const Homem = ({ navigation }) => {
         backgroundColor: "#00796A",
         height: height,
         width: width,
+        // marginTop: 10,
       }}
     >
       <StatusBar

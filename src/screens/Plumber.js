@@ -17,6 +17,7 @@ import { BottomSheet } from "react-native-btr";
 import { ScrollView } from "react-native-gesture-handler";
 import { Picker } from "@react-native-picker/picker";
 import axios from "axios";
+import { mobileNumber } from "./Login";
 
 const Plumber = ({ navigation }) => {
   const styleTypes = ["dark-content"];
@@ -31,26 +32,23 @@ const Plumber = ({ navigation }) => {
     setVisible(!visible);
   };
 
+  //console.log(mobileNumber);
   const onsubmit = async ({ personal_details }) => {
     setVisible(true);
-    // let payload = {
-    //   country_code: "+" + phoneInput.current?.getCallingCode(),
-    //   mobile_number,
-    // };
     let payload = {
       personal_details: {
         primary_phone: {
           country_code: "+91",
-          mobile_number: "8299044137",
+          mobile_number: { mobileNumber },
         },
         alternate_phone: {
           country_code: "+91",
-          mobile_number: "8299044137",
+          mobile_number: "9191919191",
         },
         name: "Testing",
       },
       specific_requirement: "Air",
-      service_provided_for: "6373436f1307e26d44ac8cdb",
+      service_provided_for: "637b7a0e7c7cd9e139b39d1e",
       address_details: {
         house_number:
           "Ho No. 2577 sainik colony sector 49 ,Noida , Uttar Pradesh",
@@ -453,10 +451,11 @@ const Plumber = ({ navigation }) => {
           borderRadius: 3,
         }}
         //</View>onPress={() => { console.log("coming soon") }}>
-        onPress={() => {
-          navigation.navigate("SuccessFull");
-        }}
-        //onPress={onsubmit}
+        // onPress={() => {
+        //   navigation.navigate("SuccessFull");
+        // }}
+
+        onPress={onsubmit}
       >
         <Text
           style={{

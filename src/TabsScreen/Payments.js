@@ -1,131 +1,183 @@
-import React, { useState } from "react";
+import React from "react";
 import {
-  KeyboardAvoidingView,
   StyleSheet,
   Text,
   View,
   TextInput,
-  TouchableOpacity,
-  Keyboard,
   ScrollView,
+  TouchableOpacity,
 } from "react-native";
-import Task from "../../utils/components/appoint";
+import Note from "../../utils/components/paynote";
 
-export default function App() {
-  const [task, setTask] = useState();
-  const [taskItems, setTaskItems] = useState([]);
+export default class Main extends React.Component {
+  constructor(props) {
+    super(props);
 
-  const handleAddTask = () => {
-    Keyboard.dismiss();
-    setTaskItems([...taskItems, task]);
-    setTask(null);
-  };
+    this.state = {
+      noteArray: [],
+      noteText: "",
+      nText: "",
+      aText: "",
+    };
+  }
 
-  const completeTask = (index) => {
-    let itemsCopy = [...taskItems];
-    itemsCopy.splice(index, 1);
-    setTaskItems(itemsCopy);
-  };
+  render() {
+    let notes = this.state.noteArray.map((val, key) => {
+      return (
+        <Note
+          key={key}
+          keyval={key}
+          val={val}
+          deleteMethod={() => this.deleteNote(key)}
+        />
+      );
+    });
 
-  return (
-    <View style={styles.container}>
-      {/* Added this scroll view to enable scrolling when list gets longer than the page */}
-      <ScrollView
-        contentContainerStyle={{
-          flexGrow: 1,
-        }}
-        keyboardShouldPersistTaps="handled"
-      >
-        {/* Today's Tasks */}
-        <View style={styles.tasksWrapper}>
-          <Text style={styles.sectionTitle}>Payments</Text>
-          <View style={styles.items}>
-            {/* This is where the tasks will go! */}
-            {taskItems.map((item, index) => {
-              return (
-                <TouchableOpacity
-                  key={index}
-                  onPress={() => completeTask(index)}
-                >
-                  <Task text={item} />
-                </TouchableOpacity>
-              );
-            })}
+    return (
+      <View style={styles.container}>
+        <View style={styles.header}>
+          <Text style={styles.headerText}>Payments</Text>
+        </View>
+
+        <ScrollView style={styles.scrollContainer}>{notes}</ScrollView>
+
+        <View style={styles.footer}>
+          <TextInput
+            style={styles.textInput2}
+            onChangeText={(noteText) => this.setState({ noteText })}
+            value={this.state.noteText}
+            placeholder="name of payments ??"
+            placeholderTextColor="ddd"
+            underlineColorAndroid="transparent"
+            autoCapitalize="true"
+          ></TextInput>
+          <View style={{ flexDirection: "row" }}>
+            <TextInput
+              style={styles.textInput}
+              onChangeText={(nText) => this.setState({ nText })}
+              value={this.state.nText}
+              placeholder="Date & day"
+              placeholderTextColor="ddd"
+              underlineColorAndroid="transparent"
+            ></TextInput>
+            <TextInput
+              style={styles.textInput}
+              onChangeText={(aText) => this.setState({ aText })}
+              value={this.state.aText}
+              placeholder="₹ amount"
+              placeholderTextColor="ddd"
+              underlineColorAndroid="transparent"
+            ></TextInput>
           </View>
         </View>
-      </ScrollView>
 
-      {/* Write a task */}
-      {/* Uses a keyboard avoiding view which ensures the keyboard does not cover the items on screen */}
-      <KeyboardAvoidingView
-        behavior={Platform.OS === "ios" ? "padding" : "height"}
-        style={styles.writeTaskWrapper}
-      >
-        <TextInput
-          style={styles.input}
-          placeholder={"Payments"}
-          value={task}
-          onChangeText={(text) => setTask(text)}
-        />
-
-        <TouchableOpacity onPress={() => handleAddTask()}>
-          <View style={styles.addWrapper}>
-            <Text style={styles.addText}>+</Text>
-          </View>
+        <TouchableOpacity
+          onPress={this.addTask.bind(this)}
+          style={styles.addButton}
+        >
+          <Text style={styles.addButtonText}>+</Text>
         </TouchableOpacity>
-      </KeyboardAvoidingView>
-    </View>
-  );
+      </View>
+    );
+  }
+  addTask() {
+    if (this.state.noteText) {
+      var date = new Date();
+
+      this.state.noteArray.push({
+        date:
+          date.getFullYear() +
+          "/" +
+          (date.getMonth() + 1) +
+          "/" +
+          date.getDate(),
+        note: this.state.noteText,
+        n: this.state.nText,
+        a: this.state.aText,
+      });
+
+      this.setState({ noteArray: this.state.noteArray });
+      this.setState({ noteText: this.state.noteText });
+      this.setState({ noteText: this.state.nText });
+      this.setState({ noteText: this.state.aText });
+    }
+  }
+
+  deleteNote(key) {
+    this.state.noteArray.splice(key, 1);
+    this.setState({ noteArray: this.state.noteArray });
+  }
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#E8EAED",
   },
-  tasksWrapper: {
-    paddingTop: 20,
-    paddingHorizontal: 0,
+  header: {
+    backgroundColor: "#F8F8F8",
+    // alignItems: "start",
+    justifyContent: "center",
   },
-  sectionTitle: {
-    fontSize: 24,
-    fontWeight: "bold",
-    marginLeft: 15,
+  headerText: {
+    color: "black",
+    fontSize: 20,
+    fontWeight: "600",
+    marginLeft: 20,
+    marginTop: 15,
+    marginBottom: 10,
   },
-  items: {
-    marginTop: 20,
-    height: 70,
+  scrollContainer: {
+    flex: 1,
+    marginBottom: 100,
   },
-  writeTaskWrapper: {
+  footer: {
     position: "absolute",
-    bottom: 60,
-    width: "100%",
-    flexDirection: "row",
-    justifyContent: "space-around",
-    alignItems: "center",
+    bottom: 0,
+    left: 0,
+    right: 0,
+    zIndex: 10,
   },
-  input: {
-    //paddingVertical: 15,
-    paddingHorizontal: 15,
-    backgroundColor: "#FFF",
+  textInput: {
+    alignSelf: "stretch",
+    color: "black",
+    padding: 15,
+    backgroundColor: "#fff",
+    borderWidth: 2,
+    borderColor: "#ddd",
     borderRadius: 5,
-    borderColor: "#C0C0C0",
-    borderWidth: 1,
-    width: 100,
-    height: 40,
+    height: 50,
+    width: "30%",
+    marginLeft: 15,
+    marginBottom: 40,
   },
-  addWrapper: {
+  textInput2: {
+    alignSelf: "stretch",
+    color: "black",
+    padding: 15,
+    backgroundColor: "#fff",
+    borderWidth: 2,
+    borderColor: "#ddd",
+    borderRadius: 5,
+    height: 50,
+    width: "70%",
+    marginLeft: 15,
+    //marginBottom: 40,
+  },
+  addButton: {
+    position: "absolute",
+    zIndex: 11,
+    right: 20,
+    bottom: 35,
+    backgroundColor: "#00796A",
     width: 60,
     height: 60,
-    backgroundColor: "#00796A",
-    borderRadius: 60,
-    justifyContent: "center",
+    borderRadius: 50,
     alignItems: "center",
-    borderColor: "#C0C0C0",
-    borderWidth: 1,
+    justifyContent: "center",
+    elevation: 8,
   },
-  addText: {
+  addButtonText: {
     color: "#fff",
-    fontSize: 30,
+    fontSize: 35,
   },
 });
