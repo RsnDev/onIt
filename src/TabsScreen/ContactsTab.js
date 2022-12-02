@@ -202,7 +202,7 @@ export default class App extends React.Component {
   render() {
     return (
       <View style={{ flex: 1 }}>
-        <SafeAreaView style={{ backgroundColor: "#2f363c" }} />
+        <SafeAreaView style={{ backgroundColor: "#fff" }} />
         <TextInput
           placeholder="Search"
           placeholderTextColor="#dddddd"

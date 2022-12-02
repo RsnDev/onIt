@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, Component } from "react";
 import {
   SafeAreaView,
   Button,
@@ -17,7 +17,6 @@ import { BottomSheet } from "react-native-btr";
 import { ScrollView } from "react-native-gesture-handler";
 import { Picker } from "@react-native-picker/picker";
 import axios from "axios";
-import { mobileNumber } from "./Login";
 
 const Plumber = ({ navigation }) => {
   const styleTypes = ["dark-content"];
@@ -31,15 +30,13 @@ const Plumber = ({ navigation }) => {
   const toggleBottomNavigationView = () => {
     setVisible(!visible);
   };
-
-  //console.log(mobileNumber);
   const onsubmit = async ({ personal_details }) => {
     setVisible(true);
     let payload = {
       personal_details: {
         primary_phone: {
           country_code: "+91",
-          mobile_number: { mobileNumber },
+          mobile_number: "9191919191",
         },
         alternate_phone: {
           country_code: "+91",
@@ -81,7 +78,7 @@ const Plumber = ({ navigation }) => {
       }).then(() => {
         setVisible(false);
         ToastAndroid.show("Request Raised", ToastAndroid.SHORT);
-        navigation.navigate("Payment", { data: payload });
+        navigation.navigate("SuccessFull", { data: payload });
       });
     } catch (error) {
       setVisible(false);
@@ -95,7 +92,9 @@ const Plumber = ({ navigation }) => {
   return (
     <View style={styles.container}>
       <View style={styles.sectionStyle}>
-        <TouchableOpacity onPress={toggleBottomNavigationView}>
+        <TouchableOpacity
+        //  onPress={toggleBottomNavigationView}
+        >
           <Image
             source={require("../../assets/logo/location.png")}
             style={styles.imageStyle}
@@ -111,14 +110,14 @@ const Plumber = ({ navigation }) => {
             style={{
               backgroundColor: "#fff",
               width: "100%",
-              height: "50%",
+              height: "60%",
               justifyContent: "flex-start",
               alignItems: "flex-start",
             }}
           >
             <Text
               style={{
-                margin: 5,
+                margin: 15,
                 marginLeft: 15,
               }}
             >
@@ -137,6 +136,11 @@ const Plumber = ({ navigation }) => {
                 placeholder="Alternate Mobile no "
                 underlineColorAndroid="transparent"
                 placeholderTextColor="#737373"
+                returnKeyLabel={"next"}
+                //  ref={mobileNumber}
+                onChangeText={(text) => {
+                  setPhoneNumber(text);
+                }}
               />
             </View>
             {/* House no */}
@@ -152,6 +156,8 @@ const Plumber = ({ navigation }) => {
                 placeholder="House no "
                 underlineColorAndroid="transparent"
                 placeholderTextColor="#737373"
+                returnKeyLabel={"next"}
+                // onChangeText={(text) => this.setState({ houseno: text })}
               />
             </View>
 
@@ -168,6 +174,8 @@ const Plumber = ({ navigation }) => {
                 placeholder="Locality "
                 underlineColorAndroid="transparent"
                 placeholderTextColor="#737373"
+                returnKeyLabel={"next"}
+                //  onChangeText={(text) => this.setState({ locality: text })}
               />
             </View>
             {/* City & pin code */}
@@ -197,6 +205,8 @@ const Plumber = ({ navigation }) => {
                 placeholder="City "
                 underlineColorAndroid="transparent"
                 placeholderTextColor="#737373"
+                returnKeyLabel={"next"}
+                //     onChangeText={(text) => this.setState({ city: text })}
               />
               <TextInput
                 style={{
@@ -215,6 +225,8 @@ const Plumber = ({ navigation }) => {
                 placeholder="Pincode "
                 underlineColorAndroid="transparent"
                 placeholderTextColor="#737373"
+                returnKeyLabel={"next"}
+                onChangeText={(text) => this.setState({ pincode: text })}
               />
             </View>
 
@@ -245,6 +257,8 @@ const Plumber = ({ navigation }) => {
                 placeholder="State "
                 underlineColorAndroid="transparent"
                 placeholderTextColor="#737373"
+                returnKeyLabel={"next"}
+                ///  onChangeText={(text) => this.setState({ state: text })}
               />
               <TextInput
                 style={{
@@ -264,8 +278,37 @@ const Plumber = ({ navigation }) => {
                 underlineColorAndroid="transparent"
                 placeholderTextColor="#737373"
                 defaultValue="India"
+                returnKeyLabel={"next"}
+                onChangeText={(text) => this.setState({ country: text })}
               />
             </View>
+            {/* button  */}
+            <TouchableOpacity onPress={() => handleAddTask()}>
+              <View
+                style={{
+                  alignItems: "center",
+                  justifyContent: "center",
+                  height: 50,
+                  width: "80%",
+                  borderRadius: 50,
+                  backgroundColor: "#00796A",
+                  marginLeft: 125,
+                  marginTop: 15,
+                }}
+              >
+                <Text
+                  style={{
+                    fontWeight: "500",
+                    fontsize: 14,
+                    color: "#fff",
+                    marginLeft: 50,
+                    marginRight: 50,
+                  }}
+                >
+                  Next
+                </Text>
+              </View>
+            </TouchableOpacity>
           </View>
         </BottomSheet>
 
@@ -337,7 +380,11 @@ const Plumber = ({ navigation }) => {
             placeholder="Specific Requirement "
             underlineColorAndroid="transparent"
             placeholderTextColor="#737373"
-            onChangeText={(text) => this.updateValue(text, "name")}
+            //ref={firstInput}
+            // onChangeText={(text) => {
+            //   setOtp({ ..._otp, 1: text });
+            //   text && secondInput.current.focus();
+            // }}
           />
         </View>
 

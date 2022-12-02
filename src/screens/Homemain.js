@@ -90,7 +90,8 @@ const Homemain = ({ navigation }) => {
             borderRadius: 4,
           }}
         >
-          <TouchableOpacity onPress={toggleBottomNavigationView}>
+          {/* <TouchableOpacity onPress={toggleBottomNavigationView}> */}
+          <TouchableOpacity>
             <Image
               source={require("../../assets/logo/111.png")}
               style={{

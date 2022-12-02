@@ -20,7 +20,7 @@ const MyAccount = ({ navigation }) => {
         source={require("../../assets/image/bg.png")}
         style={{ opacity: 50 }}
       >
-        <StatusBar translucent backgroundColor="transparent" />
+        <StatusBar backgroundColor="#00796A" />
 
         <View
           style={{
@@ -44,7 +44,7 @@ const MyAccount = ({ navigation }) => {
             My Account
           </Text>
           <Image
-            source={require("../../assets/image/naruto.png")}
+            source={require("../../assets/image/profile.png")}
             style={{
               height: 90,
               width: 90,
