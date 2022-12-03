@@ -23,6 +23,7 @@ const Plumber = ({ navigation }) => {
   const [visibleStatusBar, setVisibleStatusBar] = useState(false);
   const [styleStatusBar, setStyleStatusBar] = useState(styleTypes[0]);
   const [width, setWidth] = useState();
+  const [text, setText] = useState();
 
   const [selectedValue, setSelectedValue] = useState(false);
 
@@ -30,25 +31,28 @@ const Plumber = ({ navigation }) => {
   const toggleBottomNavigationView = () => {
     setVisible(!visible);
   };
-  const onsubmit = async ({ personal_details }) => {
+
+  console.log(text);
+
+  const onsubmit = async () => {
     setVisible(true);
+    let specific_requirement = text;
     let payload = {
       personal_details: {
         primary_phone: {
           country_code: "+91",
-          mobile_number: "9191919191",
+          mobile_number: "9198979699",
         },
         alternate_phone: {
           country_code: "+91",
           mobile_number: "9191919191",
         },
-        name: "Testing",
+        name: "Test",
       },
-      specific_requirement: "Air",
+      specific_requirement: specific_requirement,
       service_provided_for: "637b7a0e7c7cd9e139b39d1e",
       address_details: {
-        house_number:
-          "Ho No. 2577 sainik colony sector 49 ,Noida , Uttar Pradesh",
+        house_number: "Ho No. 2577 ",
         locality: "sector142",
         city: "Noida",
         state: "Uttar Pradesh",
@@ -93,7 +97,7 @@ const Plumber = ({ navigation }) => {
     <View style={styles.container}>
       <View style={styles.sectionStyle}>
         <TouchableOpacity
-        //  onPress={toggleBottomNavigationView}
+        // onPress={toggleBottomNavigationView}
         >
           <Image
             source={require("../../assets/logo/location.png")}
@@ -101,216 +105,7 @@ const Plumber = ({ navigation }) => {
           />
         </TouchableOpacity>
 
-        <BottomSheet
-          visible={visible}
-          onBackButtonPress={toggleBottomNavigationView}
-          onBackdropPress={toggleBottomNavigationView}
-        >
-          <View
-            style={{
-              backgroundColor: "#fff",
-              width: "100%",
-              height: "60%",
-              justifyContent: "flex-start",
-              alignItems: "flex-start",
-            }}
-          >
-            <Text
-              style={{
-                margin: 15,
-                marginLeft: 15,
-              }}
-            >
-              Fill the details:
-            </Text>
-            {/* alternate no */}
-            <View style={styles.msgStyle}>
-              <TextInput
-                style={{
-                  flex: 1,
-                  fontWeight: "700",
-                  fontSize: 15,
-                  color: "black",
-                  marginLeft: 15,
-                }}
-                placeholder="Alternate Mobile no "
-                underlineColorAndroid="transparent"
-                placeholderTextColor="#737373"
-                returnKeyLabel={"next"}
-                //  ref={mobileNumber}
-                onChangeText={(text) => {
-                  setPhoneNumber(text);
-                }}
-              />
-            </View>
-            {/* House no */}
-            <View style={styles.msgStyle}>
-              <TextInput
-                style={{
-                  flex: 1,
-                  fontWeight: "700",
-                  fontSize: 15,
-                  color: "black",
-                  marginLeft: 15,
-                }}
-                placeholder="House no "
-                underlineColorAndroid="transparent"
-                placeholderTextColor="#737373"
-                returnKeyLabel={"next"}
-                // onChangeText={(text) => this.setState({ houseno: text })}
-              />
-            </View>
-
-            {/* Locality  */}
-            <View style={styles.msgStyle}>
-              <TextInput
-                style={{
-                  flex: 1,
-                  fontWeight: "700",
-                  fontSize: 15,
-                  color: "black",
-                  marginLeft: 15,
-                }}
-                placeholder="Locality "
-                underlineColorAndroid="transparent"
-                placeholderTextColor="#737373"
-                returnKeyLabel={"next"}
-                //  onChangeText={(text) => this.setState({ locality: text })}
-              />
-            </View>
-            {/* City & pin code */}
-            <View
-              style={{
-                flexDirection: "row",
-                justifyContent: "space-around",
-                alignItems: "center",
-                marginLeft: 22,
-                marginRight: 22,
-              }}
-            >
-              <TextInput
-                style={{
-                  fontWeight: "600",
-                  fontSize: 15,
-                  color: "black",
-                  borderRadius: 2,
-                  borderWidth: 1,
-                  borderColor: "#ddd",
-                  backgroundColor: "#fff",
-                  height: 56,
-                  width: "48%",
-                  padding: 20,
-                  marginTop: 0,
-                }}
-                placeholder="City "
-                underlineColorAndroid="transparent"
-                placeholderTextColor="#737373"
-                returnKeyLabel={"next"}
-                //     onChangeText={(text) => this.setState({ city: text })}
-              />
-              <TextInput
-                style={{
-                  fontWeight: "600",
-                  fontSize: 15,
-                  color: "black",
-                  borderRadius: 2,
-                  borderWidth: 1,
-                  borderColor: "#ddd",
-                  backgroundColor: "#fff",
-                  height: 56,
-                  width: "48%",
-                  padding: 20,
-                  marginTop: 0,
-                }}
-                placeholder="Pincode "
-                underlineColorAndroid="transparent"
-                placeholderTextColor="#737373"
-                returnKeyLabel={"next"}
-                onChangeText={(text) => this.setState({ pincode: text })}
-              />
-            </View>
-
-            {/* State & Country */}
-            <View
-              style={{
-                flexDirection: "row",
-                justifyContent: "space-around",
-                alignItems: "center",
-                marginLeft: 22,
-                marginRight: 22,
-              }}
-            >
-              <TextInput
-                style={{
-                  fontWeight: "600",
-                  fontSize: 15,
-                  color: "black",
-                  borderRadius: 2,
-                  borderWidth: 1,
-                  borderColor: "#ddd",
-                  backgroundColor: "#fff",
-                  height: 56,
-                  width: "48%",
-                  padding: 20,
-                  marginTop: 10,
-                }}
-                placeholder="State "
-                underlineColorAndroid="transparent"
-                placeholderTextColor="#737373"
-                returnKeyLabel={"next"}
-                ///  onChangeText={(text) => this.setState({ state: text })}
-              />
-              <TextInput
-                style={{
-                  fontWeight: "600",
-                  fontSize: 15,
-                  color: "black",
-                  borderRadius: 2,
-                  borderWidth: 1,
-                  borderColor: "#ddd",
-                  backgroundColor: "#fff",
-                  height: 56,
-                  width: "48%",
-                  padding: 20,
-                  marginTop: 10,
-                }}
-                placeholder="Country "
-                underlineColorAndroid="transparent"
-                placeholderTextColor="#737373"
-                defaultValue="India"
-                returnKeyLabel={"next"}
-                onChangeText={(text) => this.setState({ country: text })}
-              />
-            </View>
-            {/* button  */}
-            <TouchableOpacity onPress={() => handleAddTask()}>
-              <View
-                style={{
-                  alignItems: "center",
-                  justifyContent: "center",
-                  height: 50,
-                  width: "80%",
-                  borderRadius: 50,
-                  backgroundColor: "#00796A",
-                  marginLeft: 125,
-                  marginTop: 15,
-                }}
-              >
-                <Text
-                  style={{
-                    fontWeight: "500",
-                    fontsize: 14,
-                    color: "#fff",
-                    marginLeft: 50,
-                    marginRight: 50,
-                  }}
-                >
-                  Next
-                </Text>
-              </View>
-            </TouchableOpacity>
-          </View>
-        </BottomSheet>
+        {/* for bottomsheet */}
 
         <Text
           style={{
@@ -377,14 +172,11 @@ const Plumber = ({ navigation }) => {
               color: "black",
               marginLeft: 15,
             }}
-            placeholder="Specific Requirement "
             underlineColorAndroid="transparent"
+            placeholder="Specific Requirement "
+            onChangeText={(newText) => setText(newText)}
+            defaultValue={text}
             placeholderTextColor="#737373"
-            //ref={firstInput}
-            // onChangeText={(text) => {
-            //   setOtp({ ..._otp, 1: text });
-            //   text && secondInput.current.focus();
-            // }}
           />
         </View>
 
