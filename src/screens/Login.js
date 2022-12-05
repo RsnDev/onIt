@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { useRef, useState } from "react";
+import { useRef, useState, useEffect } from "react";
 import {
   StyleSheet,
   View,
@@ -35,6 +35,17 @@ export default function Login({ navigation, route }) {
     handleSubmit,
     formState: { errors, isValid },
   } = useForm({ mode: "all" });
+
+  React.useEffect(() => {
+    detectlogin();
+  }, []);
+  const detectlogin = () => {
+    if (mobileNumber == 1) {
+      navigation.navigate("Homem");
+    } else {
+      ToastAndroid.show("wellcome", ToastAndroid.SHORT);
+    }
+  };
 
   const onsubmit = async ({ mobile_number }) => {
     setVisible(true);

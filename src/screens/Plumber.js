@@ -12,9 +12,11 @@ import {
   ImageRequireSource,
   TouchableOpacity,
   ToastAndroid,
+  ScrollView,
+  Dimensions,
 } from "react-native";
 import { BottomSheet } from "react-native-btr";
-import { ScrollView } from "react-native-gesture-handler";
+const { width, height } = Dimensions.get("window");
 import { Picker } from "@react-native-picker/picker";
 import axios from "axios";
 
@@ -23,41 +25,62 @@ const Plumber = ({ navigation }) => {
   const [visibleStatusBar, setVisibleStatusBar] = useState(false);
   const [styleStatusBar, setStyleStatusBar] = useState(styleTypes[0]);
   const [width, setWidth] = useState();
-  const [text, setText] = useState();
 
-  const [selectedValue, setSelectedValue] = useState(false);
+  const [text, setText] = useState();
+  const [alternate, setAlternate] = useState();
+  const [houseno, setHouseno] = useState();
+  const [local, setLocality] = useState();
+  const [cit, setCity] = useState();
+  const [pincod, setPincode] = useState();
+  const [stat, setStat] = useState();
+  const [contry, setCountry] = useState();
+  const [naam, setName] = useState();
+
+  const [selectedValue, setSelectedValue] = useState("");
 
   const [visible, setVisible] = useState(false);
   const toggleBottomNavigationView = () => {
     setVisible(!visible);
   };
-
-  console.log(text);
+  //console.log(pincode);
+  //console.log(houseno);
+  //8 console.log(selectedValue);
+  //console.log(mobile_number);
 
   const onsubmit = async () => {
     setVisible(true);
     let specific_requirement = text;
+    let mobile_number = alternate;
+    let house_number = houseno;
+    let locality = local;
+    let city = cit;
+    let state = stat;
+    let pincode = pincod;
+    let country = contry;
+    let name = naam;
+    let time_preference_type = selectedValue;
+
     let payload = {
       personal_details: {
         primary_phone: {
           country_code: "+91",
-          mobile_number: "9198979699",
+          mobile_number: alternate,
         },
         alternate_phone: {
           country_code: "+91",
-          mobile_number: "9191919191",
+          mobile_number: alternate,
         },
-        name: "Test",
+        name: naam,
       },
       specific_requirement: specific_requirement,
       service_provided_for: "637b7a0e7c7cd9e139b39d1e",
       address_details: {
-        house_number: "Ho No. 2577 ",
-        locality: "sector142",
-        city: "Noida",
-        state: "Uttar Pradesh",
-        pincode: "201301",
-        country: "INDIA",
+        house_number: houseno,
+        locality: local,
+        city: city,
+        state: state,
+        pincode: pincode,
+        country: country,
       },
       time_preference: {
         time_preference_type: "WITHIN_24_HOURS",
@@ -104,8 +127,217 @@ const Plumber = ({ navigation }) => {
             style={styles.imageStyle}
           />
         </TouchableOpacity>
-
         {/* for bottomsheet */}
+        {/* <BottomSheet
+          visible={visible}
+          onBackButtonPress={toggleBottomNavigationView}
+          onBackdropPress={toggleBottomNavigationView}
+        >
+          <View
+            style={{
+              backgroundColor: "#fff",
+              width: "100%",
+              height: "60%",
+              justifyContent: "flex-start",
+              alignItems: "flex-start",
+            }}
+          > */}
+        {/* <Text
+              style={{
+                margin: 15,
+                marginLeft: 15,
+              }}
+            >
+              Fill the details:
+            </Text> */}
+        {/* alternate no */}
+        {/* <View style={styles.msgStyle}>
+              <TextInput
+                style={{
+                  flex: 1,
+                  fontWeight: "700",
+                  fontSize: 15,
+                  color: "black",
+                  marginLeft: 15,
+                }}
+                placeholder="Alternate Mobile no "
+                underlineColorAndroid="transparent"
+                placeholderTextColor="#737373"
+                returnKeyLabel={"next"}
+                //  ref={mobileNumber}
+                onChangeText={(text) => {
+                  setPhoneNumber(text);
+                }}
+              />
+            </View> */}
+        {/* House no */}
+        {/* <View style={styles.msgStyle}>
+              <TextInput
+                style={{
+                  flex: 1,
+                  fontWeight: "700",
+                  fontSize: 15,
+                  color: "black",
+                  marginLeft: 15,
+                }}
+                placeholder="House no "
+                underlineColorAndroid="transparent"
+                placeholderTextColor="#737373"
+                returnKeyLabel={"next"}
+                // onChangeText={(text) => this.setState({ houseno: text })}
+              />
+            </View> */}
+
+        {/* Locality  */}
+        {/* <View style={styles.msgStyle}>
+              <TextInput
+                style={{
+                  flex: 1,
+                  fontWeight: "700",
+                  fontSize: 15,
+                  color: "black",
+                  marginLeft: 15,
+                }}
+                placeholder="Locality "
+                underlineColorAndroid="transparent"
+                placeholderTextColor="#737373"
+                returnKeyLabel={"next"}
+                //  onChangeText={(text) => this.setState({ locality: text })}
+              />
+            </View> */}
+        {/* City & pin code */}
+        {/* <View
+              style={{
+                flexDirection: "row",
+                justifyContent: "space-around",
+                alignItems: "center",
+                marginLeft: 22,
+                marginRight: 22,
+              }}
+            >
+              <TextInput
+                style={{
+                  fontWeight: "600",
+                  fontSize: 15,
+                  color: "black",
+                  borderRadius: 2,
+                  borderWidth: 1,
+                  borderColor: "#ddd",
+                  backgroundColor: "#fff",
+                  height: 56,
+                  width: "48%",
+                  padding: 20,
+                  marginTop: 0,
+                }}
+                placeholder="City "
+                underlineColorAndroid="transparent"
+                placeholderTextColor="#737373"
+                returnKeyLabel={"next"}
+                //     onChangeText={(text) => this.setState({ city: text })}
+              />
+              <TextInput
+                style={{
+                  fontWeight: "600",
+                  fontSize: 15,
+                  color: "black",
+                  borderRadius: 2,
+                  borderWidth: 1,
+                  borderColor: "#ddd",
+                  backgroundColor: "#fff",
+                  height: 56,
+                  width: "48%",
+                  padding: 20,
+                  marginTop: 0,
+                }}
+                placeholder="Pincode "
+                underlineColorAndroid="transparent"
+                placeholderTextColor="#737373"
+                returnKeyLabel={"next"}
+                onChangeText={(text) => this.setState({ pincode: text })}
+              />
+            </View> */}
+
+        {/* State & Country */}
+        {/* <View
+              style={{
+                flexDirection: "row",
+                justifyContent: "space-around",
+                alignItems: "center",
+                marginLeft: 22,
+                marginRight: 22,
+              }}
+            >
+              <TextInput
+                style={{
+                  fontWeight: "600",
+                  fontSize: 15,
+                  color: "black",
+                  borderRadius: 2,
+                  borderWidth: 1,
+                  borderColor: "#ddd",
+                  backgroundColor: "#fff",
+                  height: 56,
+                  width: "48%",
+                  padding: 20,
+                  marginTop: 10,
+                }}
+                placeholder="State "
+                underlineColorAndroid="transparent"
+                placeholderTextColor="#737373"
+                returnKeyLabel={"next"}
+                ///  onChangeText={(text) => this.setState({ state: text })}
+              />
+              <TextInput
+                style={{
+                  fontWeight: "600",
+                  fontSize: 15,
+                  color: "black",
+                  borderRadius: 2,
+                  borderWidth: 1,
+                  borderColor: "#ddd",
+                  backgroundColor: "#fff",
+                  height: 56,
+                  width: "48%",
+                  padding: 20,
+                  marginTop: 10,
+                }}
+                placeholder="Country "
+                underlineColorAndroid="transparent"
+                placeholderTextColor="#737373"
+                defaultValue="India"
+                returnKeyLabel={"next"}
+                onChangeText={(text) => this.setState({ country: text })}
+              />
+            </View> */}
+        {/* button  */}
+        {/* <TouchableOpacity onPress={() => navigation.navigate("Plumber")}>
+              <View
+                style={{
+                  alignItems: "center",
+                  justifyContent: "center",
+                  height: 50,
+                  width: "80%",
+                  borderRadius: 50,
+                  backgroundColor: "#00796A",
+                  marginLeft: 125,
+                  marginTop: 15,
+                }}
+              >
+                <Text
+                  style={{
+                    fontWeight: "500",
+                    fontsize: 14,
+                    color: "#fff",
+                    marginLeft: 50,
+                    marginRight: 50,
+                  }}
+                >
+                  Next
+                </Text>
+              </View>
+            </TouchableOpacity>
+          </View>
+        </BottomSheet> */}
 
         <Text
           style={{
@@ -161,62 +393,237 @@ const Plumber = ({ navigation }) => {
       </View>
 
       {/* for Details section */}
-      <View style={{ height: 150, marginTop: 10 }}>
-        {/* For name */}
-        <View style={styles.msgStyle}>
-          <TextInput
-            style={{
-              flex: 1,
-              fontWeight: "700",
-              fontSize: 15,
-              color: "black",
-              marginLeft: 15,
-            }}
-            underlineColorAndroid="transparent"
-            placeholder="Specific Requirement "
-            onChangeText={(newText) => setText(newText)}
-            defaultValue={text}
-            placeholderTextColor="#737373"
-          />
-        </View>
 
-        {/* for visit schedule */}
-        <View style={styles.withinStyle}>
-          <Image
-            source={require("../../assets/logo/Clock.png")}
-            style={{
-              height: 30,
-              width: 25,
-              marginLeft: 10,
-              justifyContent: "flex-start",
-            }}
-          />
-          <Picker
-            selectedValue={selectedValue}
-            style={{ height: 60, width: 250, fontWeight: "600" }}
-            onValueChange={(itemValue, itemIndex) =>
-              setSelectedValue(itemValue)
-            }
-          >
-            <Picker.Item label="Immediately" value="Immediately" />
-            <Picker.Item label="Within 24 Hours" value="Within 24 Hours" />
-            <Picker.Item
-              label="Specific Date & time"
-              value="Specific Date & time"
+      <View style={{ height: 160, marginTop: 10 }}>
+        {/* For name */}
+        <ScrollView>
+          <View style={styles.msgStyle}>
+            <TextInput
+              style={{
+                flex: 1,
+                fontWeight: "700",
+                fontSize: 15,
+                color: "black",
+                marginLeft: 15,
+              }}
+              underlineColorAndroid="transparent"
+              placeholder="Specific Requirement "
+              onChangeText={(newText) => setText(newText)}
+              defaultValue={text}
+              placeholderTextColor="#737373"
             />
-          </Picker>
-          {/* <Text
-          style={{
-            flex: 1,
-            fontWeight: "700",
-            fontSize: 15,
-            color: "black",
-            marginLeft: 10,
-          }}
-        >
-          Visit Schedule
-        </Text> */}
-        </View>
+          </View>
+
+          {/* for visit schedule */}
+          <View style={styles.withinStyle}>
+            <Image
+              source={require("../../assets/logo/Clock.png")}
+              style={{
+                height: 30,
+                width: 25,
+                marginLeft: 10,
+                justifyContent: "flex-start",
+              }}
+            />
+            <Picker
+              selectedValue={selectedValue}
+              style={{ height: 60, width: 250, fontWeight: "600" }}
+              onValueChange={(itemValue, itemIndex) =>
+                setSelectedValue(itemValue)
+              }
+            >
+              <Picker.Item label="Immediately" value="Immediately" />
+              <Picker.Item label="Within 24 Hours" value="Within 24 Hours" />
+              <Picker.Item
+                label="Specific Date & time"
+                value="Specific Date & time"
+              />
+            </Picker>
+          </View>
+          <View style={styles.msgStyle}>
+            <TextInput
+              style={{
+                flex: 1,
+                fontWeight: "700",
+                fontSize: 15,
+                color: "black",
+                marginLeft: 15,
+              }}
+              underlineColorAndroid="transparent"
+              placeholder="Name (contact person) "
+              onChangeText={(newText) => setName(newText)}
+              defaultValue={naam}
+              placeholderTextColor="#737373"
+            />
+          </View>
+
+          <View style={styles.msgStyle}>
+            <TextInput
+              style={{
+                flex: 1,
+                fontWeight: "700",
+                fontSize: 15,
+                color: "black",
+                marginLeft: 15,
+              }}
+              placeholder="Alternate Mobile no "
+              underlineColorAndroid="transparent"
+              placeholderTextColor="#737373"
+              returnKeyLabel={"next"}
+              onChangeText={(newText) => setAlternate(newText)}
+              defaultValue={alternate}
+              keyboardType="number-pad"
+              maxLength={10}
+            />
+          </View>
+          {/* House no */}
+          <View style={styles.msgStyle}>
+            <TextInput
+              style={{
+                flex: 1,
+                fontWeight: "700",
+                fontSize: 15,
+                color: "black",
+                marginLeft: 15,
+              }}
+              placeholder="House no "
+              underlineColorAndroid="transparent"
+              placeholderTextColor="#737373"
+              returnKeyLabel={"next"}
+              onChangeText={(newText) => setHouseno(newText)}
+              defaultValue={houseno}
+            />
+          </View>
+
+          {/* Locality  */}
+          <View style={styles.msgStyle}>
+            <TextInput
+              style={{
+                flex: 1,
+                fontWeight: "700",
+                fontSize: 15,
+                color: "black",
+                marginLeft: 15,
+              }}
+              placeholder="Locality "
+              underlineColorAndroid="transparent"
+              placeholderTextColor="#737373"
+              returnKeyLabel={"next"}
+              onChangeText={(newText) => setLocality(newText)}
+              defaultValue={local}
+            />
+          </View>
+          {/* City & pin code */}
+          <View
+            style={{
+              flexDirection: "row",
+              justifyContent: "space-around",
+              alignItems: "center",
+              marginLeft: 22,
+              marginRight: 22,
+            }}
+          >
+            <TextInput
+              style={{
+                fontWeight: "600",
+                fontSize: 15,
+                color: "black",
+                borderRadius: 2,
+                borderWidth: 1,
+                borderColor: "#ddd",
+                backgroundColor: "#fff",
+                height: 56,
+                width: "48%",
+                padding: 20,
+                marginTop: 0,
+              }}
+              placeholder="City "
+              underlineColorAndroid="transparent"
+              placeholderTextColor="#737373"
+              returnKeyLabel={"next"}
+              onChangeText={(newText) => setCity(newText)}
+              defaultValue={cit}
+            />
+            <TextInput
+              style={{
+                fontWeight: "600",
+                fontSize: 15,
+                color: "black",
+                borderRadius: 2,
+                borderWidth: 1,
+                borderColor: "#ddd",
+                backgroundColor: "#fff",
+                height: 56,
+                width: "48%",
+                padding: 20,
+                marginTop: 0,
+              }}
+              placeholder="Pincode "
+              underlineColorAndroid="transparent"
+              placeholderTextColor="#737373"
+              returnKeyLabel={"next"}
+              onChangeText={(newText) => setPincode(newText)}
+              defaultValue={pincod}
+              keyboardType="number-pad"
+              maxLength={6}
+            />
+          </View>
+
+          {/* State & Country */}
+          <View
+            style={{
+              flexDirection: "row",
+              justifyContent: "space-around",
+              alignItems: "center",
+              marginLeft: 22,
+              marginRight: 22,
+            }}
+          >
+            <TextInput
+              style={{
+                fontWeight: "600",
+                fontSize: 15,
+                color: "black",
+                borderRadius: 2,
+                borderWidth: 1,
+                borderColor: "#ddd",
+                backgroundColor: "#fff",
+                height: 56,
+                width: "48%",
+                padding: 20,
+                marginTop: 10,
+              }}
+              placeholder="State "
+              underlineColorAndroid="transparent"
+              placeholderTextColor="#737373"
+              returnKeyLabel={"next"}
+              onChangeText={(newText) => setStat(newText)}
+              defaultValue={stat}
+            />
+            <TextInput
+              style={{
+                fontWeight: "600",
+                fontSize: 15,
+                color: "black",
+                borderRadius: 2,
+                borderWidth: 1,
+                borderColor: "#ddd",
+                backgroundColor: "#fff",
+                height: 56,
+                width: "48%",
+                padding: 20,
+                marginTop: 10,
+              }}
+              placeholder="Country "
+              underlineColorAndroid="transparent"
+              placeholderTextColor="#737373"
+              defaultValue="India"
+              returnKeyLabel={"next"}
+              onChangeText={(newText) => setCountry(newText)}
+              defaultValue={contry}
+            />
+          </View>
+        </ScrollView>
       </View>
 
       {/* for coupon */}
@@ -319,6 +726,8 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "#F8F8F8",
+    height: height,
+    width: width,
     // alignItems: 'center',
     // justifyContent: 'center',
   },

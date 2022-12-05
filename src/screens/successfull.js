@@ -96,7 +96,7 @@ const SuccessFull = ({ navigation }) => {
               marginLeft: 20,
             }}
           >
-            Ac Service
+            Plumber Service
           </Text>
         </View>
         <Text

@@ -298,7 +298,7 @@ const ServiceNeeds = ({ navigation }) => {
           <View style={styles.container}>
             <TouchableOpacity
               style={styles.button1}
-              onpress={() => {
+              onPress={() => {
                 navigation.navigate("Computer");
               }}
             >
