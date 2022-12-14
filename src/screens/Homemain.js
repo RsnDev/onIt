@@ -20,8 +20,8 @@ import { useState } from "react";
 import { BottomSheet } from "react-native-btr";
 import * as Location from "expo-location";
 import HomeScreen from "../../utils/components/slider";
-//import { text } from "../../utils/components/location";
-//import { SliderBox } from "react-native-image-slider-box";
+import displayCurrentAddress from "../../location";
+
 const { height, width } = Dimensions.get("window");
 
 const Homemain = ({ navigation }) => {
@@ -29,35 +29,67 @@ const Homemain = ({ navigation }) => {
   const toggleBottomNavigationView = () => {
     setVisible(!visible);
   };
-  const [location, setLocation] = useState(null);
-  const [errorMsg, setErrorMsg] = useState(null);
-  const [address, setAddress] = useState(null);
 
+  const [locationServiceEnabled, setLocationServiceEnabled] = useState(false);
+
+  const [displayCurrentAddress, setDisplayCurrentAddress] = useState(
+    "Wait, we are fetching you location..."
+  );
   useEffect(() => {
-    (async () => {
-      let { status } = await Location.requestForegroundPermissionsAsync();
-      if (status !== "granted") {
-        setErrorMsg("Permission to access location was denied");
-        return;
-      }
-
-      let location = await Location.getCurrentPositionAsync({});
-      let address = await Location.reverseGeocodeAsync(location.coords);
-
-      // console.log(location);
-      console.log(address);
-      //setLocation(location);
-      setAddress(address);
-      // console.log("address");
-    })();
+    CheckIfLocationEnabled();
+    GetCurrentLocation();
   }, []);
 
-  let text = "Waiting..";
-  if (errorMsg) {
-    text = errorMsg;
-  } else if (address) {
-    text = JSON.stringify(address);
-  }
+  const CheckIfLocationEnabled = async () => {
+    let enabled = await Location.hasServicesEnabledAsync();
+
+    if (!enabled) {
+      Alert.alert(
+        "Location Service not enabled",
+        "Please enable your location services to continue",
+        [{ text: "OK" }],
+        { cancelable: false }
+      );
+    } else {
+      setLocationServiceEnabled(enabled);
+    }
+  };
+
+  const GetCurrentLocation = async () => {
+    let { status } = await Location.requestForegroundPermissionsAsync();
+
+    if (status !== "granted") {
+      Alert.alert(
+        "Permission not granted",
+        "Allow the app to use location service.",
+        [{ text: "OK" }],
+        { cancelable: false }
+      );
+    }
+
+    let { coords } = await Location.getCurrentPositionAsync();
+
+    if (coords) {
+      const { latitude, longitude } = coords;
+      let response = await Location.reverseGeocodeAsync({
+        latitude,
+        longitude,
+      });
+
+      for (let item of response) {
+        console.log(item);
+        let address = `${item.name}, ${item.street},  ${item.city}, ${item.postalCode}`;
+
+        setDisplayCurrentAddress(address);
+
+        // if (address.length > 0) {
+        //   setTimeout(() => {
+        //     navigation.navigate("Home", { item: address });
+        //   }, 2000);
+        // }
+      }
+    }
+  };
 
   return (
     <View
@@ -142,12 +174,12 @@ const Homemain = ({ navigation }) => {
             style={{
               flex: 1,
               fontWeight: "700",
-              fontSize: 19,
+              fontSize: 20,
               color: "#fff",
               marginLeft: 5,
             }}
           >
-            {text}
+            {displayCurrentAddress}
             {/* Sector XXX, Noida */}
           </Text>
 

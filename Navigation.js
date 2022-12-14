@@ -39,16 +39,19 @@ import Friends from "./utils/Message/Friends";
 import Technician from "./utils/Message/Technician";
 import Otp from "./backend/otp";
 import SuccessFull from "./src/screens/successfull";
+import Locations from "./location";
 
 const Stack = createNativeStackNavigator();
 const Navigation = () => {
   return (
     <NavigationContainer ref={createRef()}>
       <Stack.Navigator screenOptions={{ headerShown: false }}>
-        {/* <Stack.Screen name="Login" component={Login} /> */}
-        {/* <Stack.Screen name="Otp" component={Otp} /> */}
-        {/* <Stack.Screen name="Signup" component={Signup} /> */}
+        {/* <Stack.Screen name="Locations" component={Locations} /> */}
         <Stack.Screen name="Homem" component={Homem} />
+        <Stack.Screen name="Login" component={Login} />
+        <Stack.Screen name="Otp" component={Otp} />
+        <Stack.Screen name="Signup" component={Signup} />
+        {/* <Stack.Screen name="Homem" component={Homem} /> */}
         <Stack.Screen name="Wallet" component={Wallet} />
         <Stack.Screen name="Newtask" component={Newtask} />
         <Stack.Screen name="MyAccount" component={MyAccount} />
