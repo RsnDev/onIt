@@ -16,6 +16,7 @@ import "react-native";
 import { Ionicons } from "@expo/vector-icons";
 import React, { useEffect } from "react";
 import { useState } from "react";
+import HomeScreen from "../../utils/components/slider";
 
 const { height, width } = Dimensions.get("window");
 
@@ -175,21 +176,14 @@ const ServiceNeeds = ({ navigation }) => {
             justifyContent: "flex-start",
             alignItems: "center",
             backgroundColor: "#fff",
-            width: "100%",
+            width: "93%",
             height: 139.5,
             marginLeft: 16,
             marginTop: 15,
             borderRadius: 5,
           }}
         >
-          <Image
-            source={require("../../assets/logo/Slider.png")}
-            style={{ width: 260, height: 139.5 }}
-          />
-          <Image
-            source={require("../../assets/logo/Slider.png")}
-            style={{ marginLeft: 15, width: 260, height: 139.5 }}
-          />
+          <HomeScreen />
         </View>
 
         <Text

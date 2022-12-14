@@ -7,7 +7,7 @@
     "icon": "./assets/image/icon.png",
     "userInterfaceStyle": "light",
     "splash": {
-      "image": "./assets/image/splash.png",
+      "image": "./assets/image/splsh.png",
       "resizeMode": "cover",
       "backgroundColor": "#ffffff"
     },
@@ -18,12 +18,11 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "roushan"
     },
     "android": {
       "package": "com.yourcompany.yourappname"
     }
-    }
-    
   }
-
+}

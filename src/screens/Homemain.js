@@ -19,6 +19,7 @@ import React, { useEffect } from "react";
 import { useState } from "react";
 import { BottomSheet } from "react-native-btr";
 import * as Location from "expo-location";
+import HomeScreen from "../../utils/components/slider";
 //import { text } from "../../utils/components/location";
 //import { SliderBox } from "react-native-image-slider-box";
 const { height, width } = Dimensions.get("window");
@@ -47,6 +48,7 @@ const Homemain = ({ navigation }) => {
       console.log(address);
       //setLocation(location);
       setAddress(address);
+      // console.log("address");
     })();
   }, []);
 
@@ -60,7 +62,7 @@ const Homemain = ({ navigation }) => {
   return (
     <View
       style={{
-        flex: 1,
+        // flex: 1,
         backgroundColor: "#00796A",
         height: height,
         width: width,
@@ -73,7 +75,13 @@ const Homemain = ({ navigation }) => {
       />
 
       <View
-        style={{ flex: 2, flexDirection: "column", backgroundColor: "#00796A" }}
+        style={{
+          //flex: 2,
+          height: 110,
+          width: width,
+          flexDirection: "column",
+          backgroundColor: "#00796A",
+        }}
       >
         {/* for location box   */}
 
@@ -190,7 +198,7 @@ const Homemain = ({ navigation }) => {
               marginLeft: 5,
               letterSpacing: 0,
             }}
-            placeholder="Search for a service"
+            placeholder="Search ..."
             underlineColorAndroid="transparent"
           />
           <Image
@@ -209,7 +217,7 @@ const Homemain = ({ navigation }) => {
 
       <View
         style={{
-          flex: 11,
+          // flex: 11,
           marginTop: 5,
           backgroundColor: "#fff",
           borderTopLeftRadius: 40,
@@ -224,10 +232,10 @@ const Homemain = ({ navigation }) => {
         <Text
           style={{
             justifyContent: "center",
-            fontSize: 20,
+            fontSize: 17,
             fontWeight: "700",
             marginLeft: 16,
-            marginTop: 15,
+            marginTop: 12,
           }}
         >
           Recommended Services:
@@ -240,22 +248,15 @@ const Homemain = ({ navigation }) => {
             justifyContent: "flex-start",
             alignItems: "center",
             backgroundColor: "#fff",
-            width: "100%",
-            height: 139.5,
+            width: "93%",
+            height: 130.5,
             marginLeft: 16,
             marginTop: 15,
             borderRadius: 5,
             position: "relative",
           }}
         >
-          <Image
-            source={require("../../assets/logo/Slider.png")}
-            style={{ width: 260, height: 139.5 }}
-          />
-          <Image
-            source={require("../../assets/logo/Slider.png")}
-            style={{ marginLeft: 15, width: 260, height: 139.5 }}
-          />
+          <HomeScreen />
         </View>
 
         <Text
@@ -272,11 +273,11 @@ const Homemain = ({ navigation }) => {
           Services:
         </Text>
 
-        {/* For services  */}
         <View
           style={{
-            height: 100,
-            width: 100,
+            height: height,
+            width: width,
+            backgroundColor: "#fff",
           }}
         >
           <View style={styles.container}>
@@ -376,6 +377,7 @@ const styles = StyleSheet.create({
     marginTop: 10,
     height: 107,
     width: 100,
+    marginBottom: 15,
   },
   button0: {
     backgroundColor: "#F8F8F8",

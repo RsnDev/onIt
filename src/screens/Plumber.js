@@ -394,7 +394,7 @@ const Plumber = ({ navigation }) => {
 
       {/* for Details section */}
 
-      <View style={{ height: 160, marginTop: 10 }}>
+      <View style={{ height: 190, marginTop: 10 }}>
         {/* For name */}
         <ScrollView>
           <View style={styles.msgStyle}>

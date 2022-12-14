@@ -61,7 +61,7 @@ const TabNavigator = (navigation) => {
           }}
         />
 
-        <Tab.Screen
+        {/* <Tab.Screen
           name="Newtask"
           component={Newtask}
           options={{
@@ -69,7 +69,7 @@ const TabNavigator = (navigation) => {
               <Feather name="plus-circle" color={color} size={size} />
             ),
           }}
-        />
+        /> */}
 
         <Tab.Screen
           name="Message"
