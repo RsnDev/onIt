@@ -33,7 +33,7 @@ const Homemain = ({ navigation }) => {
   const [locationServiceEnabled, setLocationServiceEnabled] = useState(false);
 
   const [displayCurrentAddress, setDisplayCurrentAddress] = useState(
-    "Wait, we are fetching you location..."
+    "Wait,we are fetching you."
   );
   useEffect(() => {
     CheckIfLocationEnabled();
@@ -78,7 +78,7 @@ const Homemain = ({ navigation }) => {
 
       for (let item of response) {
         console.log(item);
-        let address = `${item.name}, ${item.street},  ${item.city}, ${item.postalCode}`;
+        let address = `${item.name}, ${item.city}, ${item.postalCode}`;
 
         setDisplayCurrentAddress(address);
 
@@ -174,9 +174,10 @@ const Homemain = ({ navigation }) => {
             style={{
               flex: 1,
               fontWeight: "700",
-              fontSize: 20,
+              fontSize: 18,
               color: "#fff",
               marginLeft: 5,
+              margin: 6,
             }}
           >
             {displayCurrentAddress}
@@ -304,91 +305,231 @@ const Homemain = ({ navigation }) => {
         >
           Services:
         </Text>
-
+        {/* services */}
         <View
           style={{
-            height: height,
-            width: width,
             backgroundColor: "#fff",
+            width: width,
           }}
         >
-          <View style={styles.container}>
+          <View
+            style={{
+              flexDirection: "row",
+              justifyContent: "space-around",
+              height: 110,
+              backgroundColor: "#fff",
+            }}
+          >
+            {/* Service Needs */}
             <TouchableOpacity
-              style={styles.button0}
               onPress={() => navigation.navigate("ServiceNeeds")}
             >
-              <Image
-                style={{ marginTop: 1, marginLeft: 35, height: 40, width: 40 }}
-                source={require("../../assets/logo/Service.png")}
-              />
-              <Text style={{ marginTop: 12, marginLeft: 10, height: 18 }}>
-                Service Needs
-              </Text>
+              <View
+                style={{
+                  backgroundColor: "#F8F8F8",
+                  flexDirection: "column",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  height: 100,
+                  width: 150,
+                  marginTop: 5,
+                  marginLeft: 20,
+                  marginRight: 10,
+                  marginBottom: 5,
+                  borderRadius: 20,
+                  borderWidth: 1.2,
+                  borderColor: "#FFBB00",
+                }}
+              >
+                <Image
+                  style={{ marginTop: 1, marginLeft: 0, height: 40, width: 40 }}
+                  source={require("../../assets/logo/Service.png")}
+                />
+                <Text style={{ marginTop: 10, marginLeft: 0, height: 18 }}>
+                  Service Needs
+                </Text>
+              </View>
             </TouchableOpacity>
+
+            {/* Money Manager */}
             <TouchableOpacity
-              style={styles.button2}
               onPress={() => navigation.navigate("MoneyManager")}
             >
-              <Image
-                style={{ marginTop: 1, marginLeft: 35, height: 40, width: 40 }}
-                source={require("../../assets/logo/Money.png")}
-              />
-              <Text style={{ marginTop: 12, marginLeft: 10, height: 18 }}>
-                Money Manager
-              </Text>
+              <View
+                style={{
+                  backgroundColor: "#F8F8F8",
+                  flexDirection: "column",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  height: 100,
+                  width: 150,
+                  marginTop: 5,
+                  marginLeft: 10,
+                  marginRight: 20,
+                  marginBottom: 5,
+                  borderRadius: 20,
+                  borderWidth: 1.2,
+                  borderColor: "#ddd",
+                }}
+              >
+                <Image
+                  style={{
+                    marginTop: 1,
+                    marginLeft: 0,
+                    height: 40,
+                    width: 40,
+                  }}
+                  source={require("../../assets/logo/Money.png")}
+                />
+                <Text style={{ marginTop: 12, marginLeft: 0, height: 18 }}>
+                  Money Manager
+                </Text>
+              </View>
             </TouchableOpacity>
           </View>
-          <View style={styles.container}>
+
+          <View
+            style={{
+              flexDirection: "row",
+              justifyContent: "space-around",
+              height: 110,
+              backgroundColor: "#fff",
+            }}
+          >
+            {/* task Manager */}
             <TouchableOpacity
-              style={styles.button1}
               onPress={() => navigation.navigate("TaskManager")}
             >
-              <Image
-                style={{ marginTop: 0, marginLeft: 35, height: 40, width: 40 }}
-                source={require("../../assets/logo/Task.png")}
-              />
-              <Text style={{ marginTop: 12, marginLeft: 10, height: 18 }}>
-                Task Manager
-              </Text>
+              <View
+                style={{
+                  backgroundColor: "#F8F8F8",
+                  flexDirection: "column",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  height: 100,
+                  width: 150,
+                  marginTop: 5,
+                  marginLeft: 20,
+                  marginRight: 10,
+                  marginBottom: 5,
+                  borderRadius: 20,
+                  borderWidth: 1.2,
+                  borderColor: "#ddd",
+                }}
+              >
+                <Image
+                  style={{ marginTop: 0, marginLeft: 0, height: 40, width: 40 }}
+                  source={require("../../assets/logo/Task.png")}
+                />
+                <Text style={{ marginTop: 12, marginLeft: 0, height: 18 }}>
+                  Task Manager
+                </Text>
+              </View>
             </TouchableOpacity>
-            <TouchableOpacity
-              style={styles.button2}
-              onPress={() => navigation.navigate("Contacts")}
-            >
-              <Image
-                style={{ marginTop: 1, marginLeft: 35, height: 40, width: 40 }}
-                source={require("../../assets/logo/Contact.png")}
-              />
-              <Text style={{ marginTop: 12, marginLeft: 28, height: 18 }}>
-                Contacts
-              </Text>
+            {/* contacts */}
+
+            <TouchableOpacity onPress={() => navigation.navigate("Contacts")}>
+              <View
+                style={{
+                  backgroundColor: "#F8F8F8",
+                  flexDirection: "column",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  height: 100,
+                  width: 150,
+                  marginTop: 5,
+                  marginLeft: 10,
+                  marginRight: 20,
+                  marginBottom: 5,
+                  borderRadius: 20,
+                  borderWidth: 1.2,
+                  borderColor: "#ddd",
+                }}
+              >
+                <Image
+                  style={{ marginTop: 1, marginLeft: 0, height: 40, width: 40 }}
+                  source={require("../../assets/logo/Contact.png")}
+                />
+                <Text
+                  style={{
+                    marginTop: 1,
+                    fontSize: 11,
+                    marginLeft: 2,
+                    justifyContent: "center",
+                  }}
+                >
+                  Contacts &{"\n"}Documents
+                </Text>
+              </View>
             </TouchableOpacity>
           </View>
-          <View style={styles.container}>
+
+          <View
+            style={{
+              flexDirection: "row",
+              justifyContent: "space-around",
+              height: 110,
+              backgroundColor: "#fff",
+            }}
+          >
+            {/* personal care */}
             <TouchableOpacity
-              style={styles.button1}
-              // onPress={() => navigation.navigate("PersonalCare")}
-              onPress={() => alert("coming soon")}
+              onPress={() => navigation.navigate("PersonalCare")}
             >
-              <Image
-                style={{ marginTop: 1, marginLeft: 35, height: 40, width: 40 }}
-                source={require("../../assets/logo/Pesonal.png")}
-              />
-              <Text style={{ marginTop: 12, marginLeft: 10, height: 18 }}>
-                Personal Care
-              </Text>
+              <View
+                style={{
+                  backgroundColor: "#F8F8F8",
+                  flexDirection: "column",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  height: 100,
+                  width: 150,
+                  marginTop: 5,
+                  marginLeft: 20,
+                  marginRight: 10,
+                  marginBottom: 5,
+                  borderRadius: 20,
+                  borderWidth: 1.2,
+                  borderColor: "#ddd",
+                }}
+              >
+                <Image
+                  style={{ marginTop: 1, marginLeft: 0, height: 40, width: 40 }}
+                  source={require("../../assets/logo/Pesonal.png")}
+                />
+                <Text style={{ marginTop: 12, marginLeft: 0, height: 18 }}>
+                  Personal Care
+                </Text>
+              </View>
             </TouchableOpacity>
-            <TouchableOpacity
-              style={styles.button2}
-              onPress={() => navigation.navigate("Reminders")}
-            >
-              <Image
-                style={{ marginTop: 1, marginLeft: 35, height: 40, width: 40 }}
-                source={require("../../assets/logo/Reminder.png")}
-              />
-              <Text style={{ marginTop: 12, marginLeft: 22, height: 18 }}>
-                Reminders
-              </Text>
+
+            {/* Reminders */}
+            <TouchableOpacity onPress={() => navigation.navigate("Reminders")}>
+              <View
+                style={{
+                  backgroundColor: "#F8F8F8",
+                  flexDirection: "column",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  height: 100,
+                  width: 150,
+                  marginTop: 5,
+                  marginLeft: 10,
+                  marginRight: 20,
+                  marginBottom: 5,
+                  borderRadius: 20,
+                  borderWidth: 1.2,
+                  borderColor: "#ddd",
+                }}
+              >
+                <Image
+                  style={{ marginTop: 1, marginLeft: 0, height: 40, width: 40 }}
+                  source={require("../../assets/logo/Reminder.png")}
+                />
+                <Text style={{ marginTop: 12, marginLeft: 0, height: 18 }}>
+                  Reminders
+                </Text>
+              </View>
             </TouchableOpacity>
           </View>
         </View>
@@ -399,43 +540,4 @@ const Homemain = ({ navigation }) => {
 
 export default Homemain;
 
-const styles = StyleSheet.create({
-  container: {
-    //flex: 1,
-    flexDirection: "row",
-    backgroundColor: "#fff",
-    alignItems: "flex-start",
-    marginLeft: 20,
-    marginTop: 10,
-    height: 107,
-    width: 100,
-    marginBottom: 15,
-  },
-  button0: {
-    backgroundColor: "#F8F8F8",
-    borderRadius: 8,
-    padding: 25,
-    height: 112,
-    width: 165,
-    marginBottom: 15,
-    borderWidth: 1.2,
-    borderColor: "#FFBB00",
-  },
-  button1: {
-    backgroundColor: "#F8F8F8",
-    borderRadius: 8,
-    padding: 25,
-    height: 112,
-    width: 165,
-    marginBottom: 15,
-  },
-  button2: {
-    backgroundColor: "#F8F8F8",
-    borderRadius: 8,
-    padding: 25,
-    height: 112,
-    width: 165,
-    marginBottom: 15,
-    marginLeft: 20,
-  },
-});
+const styles = StyleSheet.create({});
