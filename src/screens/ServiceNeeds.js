@@ -201,13 +201,13 @@ const ServiceNeeds = ({ navigation }) => {
         </Text>
 
         {/* For services  */}
-        <View
-          style={{
-            justifyContent: "center",
-            alignItems: "center",
-          }}
-        >
-          <ScrollView>
+        <ScrollView>
+          <View
+            style={{
+              justifyContent: "center",
+              alignItems: "center",
+            }}
+          >
             <View style={styles.container}>
               <TouchableOpacity
                 style={styles.button1}
@@ -383,8 +383,8 @@ const ServiceNeeds = ({ navigation }) => {
                 </Text>
               </TouchableOpacity>
             </View>
-          </ScrollView>
-        </View>
+          </View>
+        </ScrollView>
       </View>
     </View>
   );
