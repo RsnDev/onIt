@@ -201,139 +201,190 @@ const ServiceNeeds = ({ navigation }) => {
         </Text>
 
         {/* For services  */}
-
-        <ScrollView>
-          <View style={styles.container}>
-            <TouchableOpacity
-              style={styles.button1}
-              onPress={() => {
-                navigation.navigate("AcService");
-              }}
-            >
-              <Image
-                style={{ marginTop: 20, marginLeft: 30, height: 45, width: 40 }}
-                source={require("../../assets/logo/ac.png")}
-              />
-              <Text style={{ marginTop: 5, marginLeft: 15, height: 20 }}>
-                AC Service
-              </Text>
-            </TouchableOpacity>
-            <TouchableOpacity
-              style={styles.button2}
-              onPress={() => {
-                navigation.navigate("Beauty");
-              }}
-            >
-              <Image
-                style={{ marginTop: 20, marginLeft: 30, height: 45, width: 40 }}
-                source={require("../../assets/logo/beauty.png")}
-              />
-              <Text style={{ marginTop: 5, marginLeft: 30, height: 20 }}>
-                Beauty
-              </Text>
-            </TouchableOpacity>
-            <TouchableOpacity
-              style={styles.button2}
-              onPress={() => {
-                navigation.navigate("HomeCare");
-              }}
-            >
-              <Image
-                style={{ marginTop: 20, marginLeft: 30, height: 45, width: 40 }}
-                source={require("../../assets/logo/homecare.png")}
-              />
-              <Text style={{ marginTop: 5, marginLeft: 20, height: 20 }}>
-                Homecare
-              </Text>
-            </TouchableOpacity>
-          </View>
-          <View style={styles.container}>
-            <TouchableOpacity
-              style={styles.button0}
-              onPress={() => navigation.navigate("Plumber")}
-            >
-              <Image
-                style={{ marginTop: 20, marginLeft: 30, height: 45, width: 40 }}
-                source={require("../../assets/logo/plmber.png")}
-              />
-              <Text style={{ marginTop: 5, marginLeft: 23, height: 20 }}>
-                Plumber
-              </Text>
-            </TouchableOpacity>
-            <TouchableOpacity
-              style={styles.button2}
-              onPress={() => {
-                navigation.navigate("Appliance");
-              }}
-            >
-              <Image
-                style={{ marginTop: 20, marginLeft: 30, height: 45, width: 40 }}
-                source={require("../../assets/logo/ap.png")}
-              />
-              <Text style={{ marginTop: 5, marginLeft: 20, height: 20 }}>
-                Appliance
-              </Text>
-            </TouchableOpacity>
-            <TouchableOpacity
-              style={styles.button2}
-              onPress={() => {
-                navigation.navigate("Electronics");
-              }}
-            >
-              <Image
-                style={{ marginTop: 20, marginLeft: 30, height: 45, width: 40 }}
-                source={require("../../assets/logo/elc.png")}
-              />
-              <Text style={{ marginTop: 5, marginLeft: 20, height: 20 }}>
-                Electronics
-              </Text>
-            </TouchableOpacity>
-          </View>
-          <View style={styles.container}>
-            <TouchableOpacity
-              style={styles.button1}
-              onPress={() => {
-                navigation.navigate("Computer");
-              }}
-            >
-              <Image
-                style={{ marginTop: 20, marginLeft: 30, height: 45, width: 40 }}
-                source={require("../../assets/logo/pc.png")}
-              />
-              <Text style={{ marginTop: 5, marginLeft: 18, height: 20 }}>
-                Computer
-              </Text>
-            </TouchableOpacity>
-            <TouchableOpacity
-              style={styles.button2}
-              onPress={() => {
-                navigation.navigate("HealthCare");
-              }}
-            >
-              <Image
-                style={{ marginTop: 20, marginLeft: 30, height: 45, width: 40 }}
-                source={require("../../assets/logo/hc.png")}
-              />
-              <Text style={{ marginTop: 5, marginLeft: 18, height: 20 }}>
-                Health care
-              </Text>
-            </TouchableOpacity>
-            <TouchableOpacity
-              style={styles.button2}
-              onPress={() => {
-                navigation.navigate("Vehicles");
-              }}
-            >
-              <Image
-                style={{ marginTop: 20, marginLeft: 30, height: 45, width: 40 }}
-                source={require("../../assets/logo/vec.png")}
-              />
-              <Text style={{ marginTop: 5, marginLeft: 25, height: 20 }}>
-                Vehicles
-              </Text>
-            </TouchableOpacity>
-          </View>
-        </ScrollView>
+        <View
+          style={{
+            justifyContent: "center",
+            alignItems: "center",
+          }}
+        >
+          <ScrollView>
+            <View style={styles.container}>
+              <TouchableOpacity
+                style={styles.button1}
+                onPress={() => {
+                  navigation.navigate("AcService");
+                }}
+              >
+                <Image
+                  style={{
+                    marginTop: 20,
+                    marginLeft: 30,
+                    height: 45,
+                    width: 40,
+                  }}
+                  source={require("../../assets/logo/ac.png")}
+                />
+                <Text style={{ marginTop: 5, marginLeft: 15, height: 20 }}>
+                  AC Service
+                </Text>
+              </TouchableOpacity>
+              <TouchableOpacity
+                style={styles.button2}
+                onPress={() => {
+                  navigation.navigate("Beauty");
+                }}
+              >
+                <Image
+                  style={{
+                    marginTop: 20,
+                    marginLeft: 30,
+                    height: 45,
+                    width: 40,
+                  }}
+                  source={require("../../assets/logo/beauty.png")}
+                />
+                <Text style={{ marginTop: 5, marginLeft: 30, height: 20 }}>
+                  Beauty
+                </Text>
+              </TouchableOpacity>
+              <TouchableOpacity
+                style={styles.button2}
+                onPress={() => {
+                  navigation.navigate("HomeCare");
+                }}
+              >
+                <Image
+                  style={{
+                    marginTop: 20,
+                    marginLeft: 30,
+                    height: 45,
+                    width: 40,
+                  }}
+                  source={require("../../assets/logo/homecare.png")}
+                />
+                <Text style={{ marginTop: 5, marginLeft: 20, height: 20 }}>
+                  Homecare
+                </Text>
+              </TouchableOpacity>
+            </View>
+            <View style={styles.container}>
+              <TouchableOpacity
+                style={styles.button0}
+                onPress={() => navigation.navigate("Plumber")}
+              >
+                <Image
+                  style={{
+                    marginTop: 20,
+                    marginLeft: 30,
+                    height: 45,
+                    width: 40,
+                  }}
+                  source={require("../../assets/logo/plmber.png")}
+                />
+                <Text style={{ marginTop: 5, marginLeft: 23, height: 20 }}>
+                  Plumber
+                </Text>
+              </TouchableOpacity>
+              <TouchableOpacity
+                style={styles.button2}
+                onPress={() => {
+                  navigation.navigate("Appliance");
+                }}
+              >
+                <Image
+                  style={{
+                    marginTop: 20,
+                    marginLeft: 30,
+                    height: 45,
+                    width: 40,
+                  }}
+                  source={require("../../assets/logo/ap.png")}
+                />
+                <Text style={{ marginTop: 5, marginLeft: 20, height: 20 }}>
+                  Appliance
+                </Text>
+              </TouchableOpacity>
+              <TouchableOpacity
+                style={styles.button2}
+                onPress={() => {
+                  navigation.navigate("Electronics");
+                }}
+              >
+                <Image
+                  style={{
+                    marginTop: 20,
+                    marginLeft: 30,
+                    height: 45,
+                    width: 40,
+                  }}
+                  source={require("../../assets/logo/elc.png")}
+                />
+                <Text style={{ marginTop: 5, marginLeft: 20, height: 20 }}>
+                  Electronics
+                </Text>
+              </TouchableOpacity>
+            </View>
+            <View style={styles.container}>
+              <TouchableOpacity
+                style={styles.button1}
+                onPress={() => {
+                  navigation.navigate("Computer");
+                }}
+              >
+                <Image
+                  style={{
+                    marginTop: 20,
+                    marginLeft: 30,
+                    height: 45,
+                    width: 40,
+                  }}
+                  source={require("../../assets/logo/pc.png")}
+                />
+                <Text style={{ marginTop: 5, marginLeft: 18, height: 20 }}>
+                  Computer
+                </Text>
+              </TouchableOpacity>
+              <TouchableOpacity
+                style={styles.button2}
+                onPress={() => {
+                  navigation.navigate("HealthCare");
+                }}
+              >
+                <Image
+                  style={{
+                    marginTop: 20,
+                    marginLeft: 30,
+                    height: 45,
+                    width: 40,
+                  }}
+                  source={require("../../assets/logo/hc.png")}
+                />
+                <Text style={{ marginTop: 5, marginLeft: 18, height: 20 }}>
+                  Health care
+                </Text>
+              </TouchableOpacity>
+              <TouchableOpacity
+                style={styles.button2}
+                onPress={() => {
+                  navigation.navigate("Vehicles");
+                }}
+              >
+                <Image
+                  style={{
+                    marginTop: 20,
+                    marginLeft: 30,
+                    height: 45,
+                    width: 40,
+                  }}
+                  source={require("../../assets/logo/vec.png")}
+                />
+                <Text style={{ marginTop: 5, marginLeft: 25, height: 20 }}>
+                  Vehicles
+                </Text>
+              </TouchableOpacity>
+            </View>
+          </ScrollView>
+        </View>
       </View>
     </View>
   );
@@ -348,7 +399,7 @@ const styles = StyleSheet.create({
     backgroundColor: "#fff",
     alignItems: "flex-start",
     //justifyContent: 'center',
-    marginLeft: 25,
+    marginLeft: 0,
     marginTop: 10,
     height: 102,
     width: "93%",
@@ -378,6 +429,6 @@ const styles = StyleSheet.create({
     height: 102,
     width: 102,
     marginBottom: 15,
-    marginLeft: 20,
+    marginLeft: 15,
   },
 });
